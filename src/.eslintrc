@@ -1,0 +1,6 @@
+{
+    "extends": "./../node_modules/60frames-coding-standards/.eslintrc-react",
+    "env": {
+        "node": false
+    }
+}

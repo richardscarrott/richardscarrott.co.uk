@@ -1,0 +1,11 @@
+{
+  "name": "react-boilerplate",
+  "version": false,
+  "dependencies": {
+    "react-redux": "registry:npm/react-redux#4.4.0+20160207114942"
+  },
+  "ambientDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",
+    "react": "registry:dt/react#0.14.0+20160423065914"
+  }
+}
