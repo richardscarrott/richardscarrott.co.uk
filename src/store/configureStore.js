@@ -10,7 +10,7 @@ const middleware = [
 
 if (process.env.BROWSER && process.env.CLIENT_ENV !== 'production') {
     middleware.push(createLogger());
-    middleware.push(fsa); // TODO: test this.
+    middleware.push(fsa);
 }
 
 export default function configureStore(initialState) {
