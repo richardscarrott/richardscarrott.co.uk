@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { defaultTo } from 'ramda';
+import transformMarkdown from '../../utils/transformMarkdown';
 import { fetchPostsIfNeeded } from '../../actions/blog/blog';
 import {
     getPageIsFetching,
@@ -47,9 +48,7 @@ class Blog extends Component {
             return (
                 <div key={post.id}>
                     <h1 style={{ fontWeight: 'bold' }}>{post.title}</h1>
-                    <div dangerouslySetInnerHTML={{
-                        __html: post.html
-                    }} />
+                    {transformMarkdown(post.markdown)}
                 </div>
             );
         });

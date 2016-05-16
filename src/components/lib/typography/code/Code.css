@@ -1,0 +1,6 @@
+/* .root code is required as react-lowlight doesn't let us style <code /> */
+.root,
+.root code {
+    font-size: 16px;
+    font-family: monospace;
+}

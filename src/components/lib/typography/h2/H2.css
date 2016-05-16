@@ -1,0 +1,17 @@
+@import '../../../../root.css';
+
+.root {
+    font-family: 'Avenir Next', 'Open Sans', sans-serif;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--grey);
+}
+
+.regular {
+    composes: root;
+}
+
+.bold {
+    composes: root;
+    font-weight: bold;
+}

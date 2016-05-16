@@ -8,6 +8,9 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const path = require('path');
 const stripJsonComments = require('strip-json-comments');
 const fs = require('fs');
+const autoprefixer = require('autoprefixer');
+const customProperties = require('postcss-custom-properties');
+const postcssAspectRatio = require('postcss-aspect-ratio');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const DIST_DIR = path.join(__dirname, '../../dist');
@@ -39,6 +42,13 @@ module.exports = function generateConfig(options) {
         output: {},
         module: {
             loaders: getLoaders(options)
+        },
+        postcss() {
+            return [
+                autoprefixer,
+                customProperties,
+                postcssAspectRatio
+            ];
         },
         resolve: {
             root: [
@@ -101,6 +111,7 @@ function getLoaders(options) {
         }
     ];
 
+    // TODO: I don't think json-loader is neccesary when under test (i.e. node require supports json out of the box)
     if (!options.test) {
         loaders.push({
             test: /\.js$/,
@@ -132,7 +143,7 @@ function getCssLoaders(options) {
     let styleLoader = 'style-loader';
     let cssLoader = options.node ? 'css-loader/locals' : 'css-loader';
     let cssModulesLoader;
-    let autoprefixerLoader = 'autoprefixer-loader';
+    let postCssLoader = 'postcss-loader';
     let cssLoaders;
     let cssModulesLoaders;
 
@@ -159,11 +170,11 @@ function getCssLoaders(options) {
         );
         cssModulesLoaders = ExtractTextPlugin.extract(
             `${styleLoader}`,
-            `${cssModulesLoader}!${autoprefixerLoader}`
+            `${cssModulesLoader}!${postCssLoader}`
         );
     } else {
         cssLoaders = `${styleLoader}!${cssLoader}`;
-        cssModulesLoaders = `${styleLoader}!${cssModulesLoader}!${autoprefixerLoader}`;
+        cssModulesLoaders = `${styleLoader}!${cssModulesLoader}!${postCssLoader}`;
     }
 
     // Global CSS

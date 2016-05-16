@@ -38,7 +38,10 @@ function fetchActivity() {
             .then(
                 response => dispatch(fetchActivitySuccess(response)),
                 error => dispatch(fetchActivityFailure(error))
-            );
+            )
+            .catch(ex => {
+                console.error(ex);
+            });
     }
 }
 

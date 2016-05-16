@@ -52,6 +52,7 @@ function webpackUniversalRenderer(multiCompiler, options) {
         error = false;
         try {
             const data = outputFs.readFileSync(options.universalRendererPath);
+            // TODO: Look into exposing source maps
             universalRenderer = requireFromString(data.toString()).default(clientStats.toJson());
         } catch (e) {
             debug(`Error: ${e}`);
@@ -62,7 +63,7 @@ function webpackUniversalRenderer(multiCompiler, options) {
     return (req, res, next) => {
         debug(`Receive request ${req.url}`);
         if (error) {
-            throw error;
+            return next(error);
         }
         universalRenderer(req, res, next);
     };

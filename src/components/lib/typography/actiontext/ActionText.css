@@ -1,0 +1,39 @@
+/**
+ * NOTE: pseudo classes should be defined in the following order: `:link`, `:visited`,
+ * `:hover`, `:focus`, `:active`.
+ * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states/
+ */
+
+ @import '../../../../root.css';
+
+.root,
+.root:link,
+.root:visited {
+    /* A few reset styles are neccesary to allow <button> elements to be styled as action text. */
+    display: inline;
+    background-image: none; /* https://github.com/necolas/normalize.css/issues/214 */
+    border: none;
+    outline: none;
+    padding: 0;
+    background: none;
+    color: var(--blue);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.root:hover,
+.root:focus {
+    text-decoration: underline;
+}
+
+.root:active {
+    color: var(--darkblue);
+}
+
+.root:visited {
+    color: var(--purple);
+}
+
+.root:visited:active {
+    color: var(--deeppurple);
+}

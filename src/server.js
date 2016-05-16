@@ -46,12 +46,11 @@ function render(stats, renderProps, store) {
     const js = getJsFromStats(stats);
     const css = getCssFromStats(stats);
 
-    // const markup = renderToString(
-    //     <Provider store={store}>
-    //         <RouterContext {...renderProps} />
-    //     </Provider>
-    // );
-    const markup = '';
+    const markup = renderToString(
+        <Provider store={store}>
+            <RouterContext {...renderProps} />
+        </Provider>
+    );
 
     const head = Helmet.rewind();
 
@@ -79,7 +78,7 @@ export default stats => {
      * @param  {object}     res Express response object
      * @return {undefined}  undefined
      */
-    return (req, res) => {
+    return (req, res, next) => {
         match({
             routes,
             location: req.url
@@ -92,8 +91,14 @@ export default stats => {
                 const store = configureStore();
                 fetchComponentData(renderProps, store)
                     .then(() => {
+                        let html;
+                        try {
+                            html = render(stats, renderProps, store);
+                        } catch (ex) {
+                            return next(ex);
+                        }
                         res.status(isNotFound(renderProps) ? 404 : 200)
-                            .send(`<!doctype html>${render(stats, renderProps, store)}`);
+                            .send(`<!doctype html>${html}`);
                     });
             }
         });

@@ -45,7 +45,10 @@ function fetchPosts(page) {
             .then(
                 response => dispatch(fetchPostsSuccess(page, response)),
                 error => dispatch(fetchPostsFailure(page, error))
-            );
+            )
+            .catch(ex => {
+                console.error(ex);
+            });
     }
 }
 

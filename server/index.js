@@ -21,10 +21,11 @@ app.use('/api', api);
 
 // Mount ghost on the root and filter out any requests which don't contain /ghost/
 // to 'disable' the frontend UI. i.e. only allow the admin and ghost api.
+// Also allow /content/ for ghost images.
 // http://localhost:6060/ghost/api/v0.1/posts/?client_id=ghost-frontend&client_secret=06b9f5556fda
 // clientId: "ghost-frontend",
 // clientSecret: "4d768870dd95"
-app.use(filter(req => /^\/ghost\//.test(req.url), ghost({
+app.use(filter(req => /^\/ghost|content\//.test(req.url), ghost({
     config: path.join(__dirname, 'ghost/config.js')
 })));
 

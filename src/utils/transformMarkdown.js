@@ -1,0 +1,32 @@
+import React from 'react';
+import url from 'url';
+import {
+    H1,
+    H2,
+    H3,
+    H4,
+    BodyText,
+    ActionText,
+    Quote,
+    Code
+} from '../components/lib/typography/Typography';
+import Image from '../components/lib/image/Image';
+import remark from 'remark';
+import reactRenderer from 'remark-react';
+
+export default markdown => {
+    return remark().use(reactRenderer, {
+        remarkReactComponents: {
+            h1: props => <H1 weight="bold" {...props} />,
+            h2: props => <H2 weight="bold" {...props} />,
+            h3: props => <H3 weight="bold" {...props} />,
+            h4: props => <H4 weight="bold" {...props} />,
+            h5: props => <H4 weight="bold" {...props} />,
+            p: BodyText,
+            a: ActionText,
+            blockquote: Quote,
+            img: ({ src, ...other }) => <Image {...other} src={src} aspectRatio={url.parse(src, true).query.ratio} />,
+            code: ({ className, ...other }) => <Code {...other} language={className.split('-')[1]} />
+        }
+    }).process(markdown);
+}
