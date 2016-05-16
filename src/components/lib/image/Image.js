@@ -83,7 +83,7 @@ class Image extends Component {
                 break;
             case status.ERROR:
                 // TODO: maybe show a placeholder image here instread?
-                content = <span>ERROR</span>;
+                content = <span className={styles.error}>ERROR</span>;
                 break;
             default:
                 content = (

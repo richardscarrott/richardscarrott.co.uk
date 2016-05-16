@@ -39,7 +39,7 @@ function factory(name, config) {
         inline: false,
         ...config.defaultProps
     };
-    const styles = {
+    const componentStyles = {
         ...styles,
         ...config.styles
     };
@@ -49,8 +49,8 @@ function factory(name, config) {
             Type = 'span'; // Stay valid.
         }
         return (
-            <Type {...other} className={classNames(className, styles[weight], {
-                [styles.inline]: inline
+            <Type {...other} className={classNames(className, componentStyles[weight], {
+                [componentStyles.inline]: inline
             })} />
         );
     }

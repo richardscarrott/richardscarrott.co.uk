@@ -32,6 +32,8 @@
     margin-top: -11px;
 }
 
+.error {}
+
 .image {
     display: block;
     background-size: cover;

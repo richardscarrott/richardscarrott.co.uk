@@ -24,6 +24,7 @@
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/react-dom",
       "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/enzyme",
       "<rootDir>/node_modules/redux",
       "<rootDir>/node_modules/redux-thunk",
       "<rootDir>/node_modules/redux-mock-store",
