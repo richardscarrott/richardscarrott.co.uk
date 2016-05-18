@@ -14,7 +14,10 @@ import Image from '../components/lib/image/Image';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 
-export default markdown => {
+const EXCERPT_SEPARATOR = '<!-- more -->';
+
+function transform(markdown) {
+    const input = markdown.replace(EXCERPT_SEPARATOR, '');
     return remark().use(reactRenderer, {
         remarkReactComponents: {
             h1: props => <H1 weight="bold" {...props} />,
@@ -28,5 +31,11 @@ export default markdown => {
             img: ({ src, ...other }) => <Image {...other} src={src} aspectRatio={url.parse(src, true).query.ratio} />,
             code: ({ className, ...other }) => <Code {...other} language={className.split('-')[1]} />
         }
-    }).process(markdown);
+    }).process(input);
 }
+
+export function transformExcerpt(markdown) {
+    return transform(markdown.split(EXCERPT_SEPARATOR)[0]);
+}
+
+export default transform;

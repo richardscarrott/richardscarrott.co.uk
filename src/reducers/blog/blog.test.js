@@ -4,7 +4,10 @@ import reducer from './blog';
 import {
     FETCH_POSTS_REQUEST,
     FETCH_POSTS_SUCCESS,
-    FETCH_POSTS_FAILURE
+    FETCH_POSTS_FAILURE,
+    FETCH_POST_REQUEST,
+    FETCH_POST_SUCCESS,
+    FETCH_POST_FAILURE
 } from '../../actions/blog/blog';
 
 describe('reducers/blog/blog', () => {
@@ -61,10 +64,10 @@ describe('reducers/blog/blog', () => {
             payload: {
                 entities: {
                     posts: {
-                        1: {
+                        'post-1': {
                             name: 'Post 1'
                         },
-                        2: {
+                        'post-2': {
                             name: 'Post 2'
                         }
                     },
@@ -97,11 +100,19 @@ describe('reducers/blog/blog', () => {
         ).toEqual({
             entities: {
                 posts: {
-                    1: {
-                        name: 'Post 1'
+                    'post-1': {
+                        isFetching: false,
+                        error: null,
+                        post: {
+                            name: 'Post 1'
+                        }
                     },
-                    2: {
-                        name: 'Post 2'
+                    'post-2': {
+                        isFetching: false,
+                        error: null,
+                        post: {
+                            name: 'Post 2'
+                        }
                     }
                 },
                 authors: {
@@ -155,6 +166,132 @@ describe('reducers/blog/blog', () => {
                     posts: null
                 }
             }
+        });
+    });
+
+    it('handles FETCH_POST_REQUEST', () => {
+        const action = {
+            type: FETCH_POST_REQUEST,
+            meta: {
+                slug: 'post-1'
+            }
+        };
+        const state = {
+            entities: {
+                posts: {},
+                authors: {}
+            },
+            pages: {}
+        };
+        expect(
+            reducer(state, action)
+        ).toEqual({
+            entities: {
+                posts: {
+                    'post-1': {
+                        isFetching: true,
+                        error: null,
+                        post: null
+                    }
+                },
+                authors: {}
+            },
+            pages: {}
+        });
+    });
+
+    it('handles FETCH_POST_SUCCESS', () => {
+        const action = {
+            type: FETCH_POST_SUCCESS,
+            meta: {
+                slug: 'post-1'
+            },
+            payload: {
+                entities: {
+                    posts: {
+                        'post-1': {
+                            name: 'Post 1'
+                        }
+                    },
+                    authors: {
+                        1: {
+                            name: 'Author 1'
+                        }
+                    }
+                },
+                result: {
+                    posts: [1]
+                }
+            }
+        };
+        const state = {
+            entities: {
+                posts: {
+                    isFetching: true,
+                    error: null,
+                    post: null
+                },
+                authors: {}
+            },
+            pages: {}
+        };
+        expect(
+            reducer(state, action)
+        ).toEqual({
+            entities: {
+                posts: {
+                    'post-1': {
+                        isFetching: false,
+                        error: null,
+                        post: {
+                            name: 'Post 1'
+                        }
+                    }
+                },
+                authors: {
+                    1: {
+                        name: 'Author 1'
+                    }
+                }
+            },
+            pages: {}
+        });
+    });
+
+    it('handles FETCH_POST_FAILURE', () => {
+        const action = {
+            type: FETCH_POST_FAILURE,
+            meta: {
+                slug: 'post-1'
+            },
+            payload: 'Bad Request'
+        };
+        const state = {
+            entities: {
+                posts: {
+                    'post-1': {
+                        isFetching: true,
+                        error: null,
+                        post: null
+                    }
+                }
+            },
+            pages: {}
+        };
+        expect(
+            reducer(state, action)
+        ).toEqual({
+            entities: {
+                posts: {
+                    'post-1': {
+                        isFetching: false,
+                        error: 'Bad Request',
+                        post: null
+                    }
+                },
+                authors: {}
+            },
+            pages: {}
         });
     });
 

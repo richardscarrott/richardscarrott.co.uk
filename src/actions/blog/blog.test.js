@@ -15,6 +15,7 @@ const mockStore = configureMockStore([
     thunk
 ]);
 
+// TODO: Write tests for new post actions
 describe('actions/blog/blog', () => {
 
     describe('fetchPostsIfNeeded', () => {

@@ -1,8 +1,8 @@
-import { __, curry, compose, chain, map, slice, apply, lift, flip, merge, identity, filter, unnest, not, isEmpty } from 'ramda';
+import { __, curry, compose, chain, map, slice, apply, lift, flip, merge, identity, filter, unnest, not, isEmpty, memoize } from 'ramda';
 import { Maybe, Identity } from 'ramda-fantasy';
 import { createSelector } from 'reselect';
 
-const safeProp = curry((p, obj) => Maybe(obj[p]));
+const safeProp = curry(memoize((p, obj) => Maybe(obj[p])));
 
 const ignoreFirstArg = fn => (...args) => apply(fn, slice(1, Infinity, args));
 
@@ -65,7 +65,10 @@ export const getPageError = compose(
 );
 
 const combinePost = curry((posts, authors, id) => {
-    const post = chain(safeProp(id), posts);
+    const post = compose(
+        chain(safeProp('post')),
+        chain(safeProp(id))
+    )(posts);
     const author = compose(
         chain(
             chain(flip(safeProp), authors)

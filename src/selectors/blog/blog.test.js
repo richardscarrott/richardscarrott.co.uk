@@ -109,20 +109,26 @@ describe('selectors/blog/blog', () => {
                             1: {
                                 isFetching: false,
                                 error: null,
-                                name: 'Post 1',
-                                author: 2
+                                post: {
+                                    name: 'Post 1',
+                                    author: 2
+                                }
                             },
                             2: {
                                 isFetching: false,
                                 error: null,
-                                name: 'Post 2',
-                                author: 1
+                                post: {
+                                    name: 'Post 2',
+                                    author: 1
+                                }
                             },
                             3: {
                                 isFetching: false,
                                 error: null,
-                                name: 'Post 2',
-                                author: 3 // Does not exist
+                                post: {
+                                    name: 'Post 2',
+                                    author: 3 // Does not exist
+                                }
                             }
                         },
                         authors: {
@@ -147,22 +153,16 @@ describe('selectors/blog/blog', () => {
             expect(result).toBeJust();
             expect(result.getOrElse([])).toEqual([
                 {
-                    isFetching: false,
-                    error: null,
                     name: 'Post 1',
                     author: {
                         name: 'Author 2'
                     }
                 }, {
-                    isFetching: false,
-                    error: null,
                     name: 'Post 2',
                     author: {
                         name: 'Author 1'
                     }
                 }, {
-                    isFetching: false,
-                    error: null,
                     name: 'Post 2',
                     author: {}
                 }
@@ -333,14 +333,18 @@ describe('selectors/blog/blog', () => {
                             1: {
                                 isFetching: false,
                                 error: null,
-                                name: 'Post 1',
-                                author: 2
+                                post: {
+                                    name: 'Post 1',
+                                    author: 2
+                                }
                             },
                             2: {
                                 isFetching: false,
                                 error: null,
-                                name: 'Post 2',
-                                author: 1
+                                post: {
+                                    name: 'Post 2',
+                                    author: 1
+                                }
                             }
                         },
                         authors: {
@@ -358,8 +362,6 @@ describe('selectors/blog/blog', () => {
             const result1 = getPost(1, state);
             expect(result1).toBeJust();
             expect(result1.getOrElse({})).toEqual({
-                isFetching: false,
-                error: null,
                 name: 'Post 1',
                 author: {
                     name: 'Author 2'
@@ -369,8 +371,6 @@ describe('selectors/blog/blog', () => {
             const result2 = getPost(2, state);
             expect(result2).toBeJust();
             expect(result2.getOrElse({})).toEqual({
-                isFetching: false,
-                error: null,
                 name: 'Post 2',
                 author: {
                     name: 'Author 1'

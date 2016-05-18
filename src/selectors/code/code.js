@@ -1,10 +1,7 @@
-import { compose, chain, map, prop, isEmpty, not } from 'ramda';
+import { compose, chain, map, prop, isEmpty, not, memoize, curry } from 'ramda';
 import { Maybe } from 'ramda-fantasy';
 
-const safeProp = name => compose(
-    Maybe,
-    prop(name)
-);
+const safeProp = curry(memoize((p, obj) => Maybe(obj[p])));
 
 const getActivity = compose(
     chain(safeProp('activity')),

@@ -60,15 +60,20 @@ Code.contextTypes = {
     store: PropTypes.object.isRequired
 };
 
-Code.fetchData = function({store}) {
+Code.fetchData = function({ store }) {
     return store.dispatch(fetchActivityIfNeeded());
 };
 
+// Avoid creating a new instance everytime mapStateToProps is called to ensure
+// shouldComponentUpdate isn't invalidated.
+const EMPTY_EVENTS = [];
+
 function mapStateToProps(state) {
+    debugger;
     return {
         isFetching: getIsFetching(state).getOrElse(false),
         error: getError(state).getOrElse(null),
-        events: getEvents(state).getOrElse([]),
+        events: getEvents(state).getOrElse(EMPTY_EVENTS),
         hasData: getHasData(state).getOrElse(false)
     };
 }

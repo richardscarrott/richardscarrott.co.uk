@@ -2,15 +2,35 @@ import { combineReducers } from 'redux';
 import {
     FETCH_POSTS_REQUEST,
     FETCH_POSTS_SUCCESS,
-    FETCH_POSTS_FAILURE
+    FETCH_POSTS_FAILURE,
+    FETCH_POST_REQUEST,
+    FETCH_POST_SUCCESS,
+    FETCH_POST_FAILURE
 } from '../../actions/blog/blog';
 
-function authors(state = {}, action) {
+function post(state = {
+    isFetching: false,
+    error: null,
+    post: null
+}, action) {
     switch(action.type) {
-        case FETCH_POSTS_SUCCESS:
+        case FETCH_POST_REQUEST:
             return {
                 ...state,
-                ...action.payload.entities.authors
+                isFetching: true,
+                error: null
+            };
+        case FETCH_POST_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                post: action.payload.entities.posts[action.meta.slug],
+            };
+        case FETCH_POST_FAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
             };
         default:
             return state;
@@ -22,7 +42,33 @@ function posts(state = {}, action) {
         case FETCH_POSTS_SUCCESS:
             return {
                 ...state,
-                ...action.payload.entities.posts
+                ...Object.keys(action.payload.entities.posts).reduce((acc, slug) => {
+                    acc[slug] = {
+                        isFetching: false,
+                        error: null,
+                        post: action.payload.entities.posts[slug]
+                    };
+                    return acc;
+                }, {})
+            };
+        case FETCH_POST_REQUEST:
+        case FETCH_POST_SUCCESS:
+        case FETCH_POST_FAILURE:
+            return {
+                [action.meta.slug]: post(state[action.meta.slug], action)
+            };
+        default:
+            return state;
+    }
+}
+
+function authors(state = {}, action) {
+    switch(action.type) {
+        case FETCH_POSTS_SUCCESS:
+        case FETCH_POST_SUCCESS:
+            return {
+                ...state,
+                ...action.payload.entities.authors
             };
         default:
             return state;
