@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import Header from './header/Header';
 import styles from './App.css';
 
 const DEFAULT_TITLE = 'Richard Scarrott, Frontend Web Developer';
 
-function App({children}) {
+function App({ children }) {
     return (
         <div>
             <Helmet
@@ -17,6 +18,7 @@ function App({children}) {
                         href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,700'
                     }
                 ]} />
+            <Header className={styles.header} />
             <Link to="/">Blog</Link>
             <Link to="/code">Code</Link>
             {children}

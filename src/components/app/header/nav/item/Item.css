@@ -1,0 +1,42 @@
+ @import '../../../../../root.css';
+
+:root {
+    --duration: 500ms;
+}
+
+.root {
+
+}
+
+.link {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: all var(--duration);
+    border-bottom: 3px solid transparent;
+    color: var(--grey);
+}
+
+.link:hover {
+    border-bottom-color: var(--grey);
+}
+
+.active {
+    composes: link;
+}
+
+.active,
+.active:hover {
+    border-bottom-color: var(--darkgrey);
+    color: var(--darkgrey);
+}
+
+.text {
+    color: var(--grey);
+    transition: all var(--duration);
+}
+
+.active .text,
+.active:hover .text {
+    color: var(--darkgrey);
+}

@@ -17,7 +17,7 @@ function Post({ title, markdown, slug, published_at, excerpt, useH1, className }
     return (
         <div className={classNames(styles.root, className)}>
             <H1>
-                <ActionText to={`/post/${slug}/`}>
+                <ActionText to={`/blog/post/${slug}/`}>
                     {title}
                 </ActionText>
             </H1>

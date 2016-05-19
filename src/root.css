@@ -1,5 +1,7 @@
 :root {
-    --grey: #4A4A4A;
+    --darkgrey: #4A4A4A;
+    --grey: #9E9E9E;
+    --lightgrey: #F2F2F2;
     --blue: #1687D6;
     /* TODO: choose better colours */
     --darkblue: darkblue;

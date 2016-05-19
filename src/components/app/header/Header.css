@@ -1,0 +1,14 @@
+ @import '../../../root.css';
+
+.root {
+    position: relative;
+    background: var(--lightgrey);
+    padding: 130px 20px;
+}
+
+.nav {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute, Redirect } from 'react-router';
+import { Route, IndexRoute, Redirect, IndexRedirect } from 'react-router';
 import Helmet from 'react-helmet';
 import App from './components/app/App';
 import Page from './components/blog/page/Page';
@@ -13,9 +13,12 @@ import NotFound from './components/NotFound';
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Page} />
-        <Redirect path="page/1" to="/" />
-        <Route path="page/:pageNumber" component={Page} />
-        <Route path="post/:slug" component={Post} />
+        <Route path="blog">
+            <IndexRedirect to="/" />
+            <Redirect path="page/1" to="/" />
+            <Route path="page/:pageNumber" component={Page} />
+            <Route path="post/:slug" component={Post} />
+        </Route>
         <Route path="code" component={Code} />
         {process.env.CLIENT_ENV !== 'production' ? (
             <Route path="kitchen-sink" component={KitchenSink} />

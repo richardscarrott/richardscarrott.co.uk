@@ -53,7 +53,7 @@ class Page extends Component {
             return (
                 <div key={post.id}>
                     <H1>
-                        <ActionText to={`/post/${post.slug}/`}>
+                        <ActionText to={`/blog/post/${post.slug}/`}>
                             {post.title}
                         </ActionText>
                     </H1>

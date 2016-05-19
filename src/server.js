@@ -8,23 +8,25 @@ import routes, { NotFoundComponent } from './routes';
 import Html from './components/html';
 
 function fetchComponentData(renderProps, store) {
-    const requests = renderProps.components.map(component => {
-        // Handle `connect`ed components.
-        if (component.WrappedComponent) {
-            component = component.WrappedComponent;
-        }
-        if (component.fetchData) {
-            const { query, params, history } = renderProps;
-            return component.fetchData({
-                store,
-                query,
-                params,
-                history
-            })
-            // Make sure promise always successfully resolves
-            .catch(() => {});
-        }
-    });
+    const requests = renderProps.components
+        .filter(component => component) // filter undefined values
+        .map(component => {
+            // Handle `connect`ed components.
+            if (component.WrappedComponent) {
+                component = component.WrappedComponent;
+            }
+            if (component.fetchData) {
+                const { query, params, history } = renderProps;
+                return component.fetchData({
+                    store,
+                    query,
+                    params,
+                    history
+                })
+                // Make sure promise always successfully resolves
+                .catch(() => {});
+            }
+        });
 
     return Promise.all(requests);
 }

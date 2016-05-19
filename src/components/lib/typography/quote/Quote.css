@@ -6,7 +6,7 @@
     font-family: Palatino-Italic, serif; /* TODO: determine if this font is cross platform */
     font-size: 24px;
     line-height: 34px;
-    color: var(--grey);
+    color: var(--darkgrey);
     text-align: center;
 }
 
