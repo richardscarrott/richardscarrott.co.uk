@@ -1,7 +1,7 @@
 @import '../../../../root.css';
 
 .root {
-    font-family: 'Avenir Next', 'Open Sans', sans-serif;
+    font-family: var(--avenirnext);
     font-size: 30px;
     line-height: 1;
     color: var(--darkgrey);

@@ -8,7 +8,7 @@ const DEFAULT_TITLE = 'Richard Scarrott, Frontend Web Developer';
 
 function App({ children }) {
     return (
-        <div>
+        <div className={styles.root}>
             <Helmet
                 titleTemplate={`%s | ${DEFAULT_TITLE}`}
                 defaultTitle={DEFAULT_TITLE}
@@ -19,9 +19,9 @@ function App({ children }) {
                     }
                 ]} />
             <Header className={styles.header} />
-            <Link to="/">Blog</Link>
-            <Link to="/code">Code</Link>
-            {children}
+            <div className={styles.content}>
+                {children}
+            </div>
         </div>
     );
 }

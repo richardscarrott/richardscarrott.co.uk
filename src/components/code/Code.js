@@ -69,7 +69,6 @@ Code.fetchData = function({ store }) {
 const EMPTY_EVENTS = [];
 
 function mapStateToProps(state) {
-    debugger;
     return {
         isFetching: getIsFetching(state).getOrElse(false),
         error: getError(state).getOrElse(null),

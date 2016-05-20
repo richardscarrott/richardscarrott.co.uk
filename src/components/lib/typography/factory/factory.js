@@ -48,8 +48,10 @@ function factory(name, config) {
         if (inline && isBlockElement(Type)) {
             Type = 'span'; // Stay valid.
         }
+        // NOTE: global 'name' is added as class to allow the Copy component to
+        // appropriately style the typography.
         return (
-            <Type {...other} className={classNames(className, componentStyles[weight], {
+            <Type {...other} className={classNames(`typography-${name}`.toLowerCase(), className, componentStyles[weight], {
                 [componentStyles.inline]: inline
             })} />
         );

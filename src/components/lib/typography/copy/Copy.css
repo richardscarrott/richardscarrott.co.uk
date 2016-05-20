@@ -1,0 +1,42 @@
+.root {
+    display: block;
+}
+
+.root :global(.typography-h1),
+.root :global(.typography-h2),
+.root :global(.typography-h3),
+.root :global(.typography-h4) {
+    margin: 1.2em 0 0.5em;
+}
+
+.root :global(.typography-introtext),
+.root :global(.typography-bodytext),
+.root :global(.typography-quote),
+.root :global(.typography-code) {
+    /*margin: 0 0 1.2em;*/
+    margin: 1.2em 0;
+}
+
+.root :global(.typography-h1) + :global(.typography-h2),
+.root :global(.typography-h3) + :global(.typography-h4) {
+    margin-top: -0.2em;
+}
+
+/*.root :global(.typography-h1:first-child),
+.root :global(.typography-h2:first-child),
+.root :global(.typography-h3:first-child),
+.root :global(.typography-h4:first-child),
+.root :global(.typography-introtext:first-child),
+.root :global(.typography-bodytext:first-child),
+.root :global(.typography-quote:first-child),
+.root :global(.typography-code:first-child) {
+    margin-top: 0;
+}*/
+
+/*.root :global(.bodytext) + :global(.typography-h1),
+.root :global(.bodytext) + :global(.typography-h2),
+.root :global(.bodytext) + :global(.typography-h3),
+.root :global(.bodytext) + :global(.typography-h4),
+.root :global(.bodytext) + :global(.typography-h5) {
+    margin-top: 1em;
+}*/

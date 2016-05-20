@@ -19,6 +19,7 @@
     color: var(--blue);
     cursor: pointer;
     text-decoration: none;
+    transition: all 200ms;
 }
 
 .root:hover,

@@ -8,4 +8,4 @@ export {default as Quote} from './quote/Quote';
 export {default as ActionText} from './actiontext/ActionText';
 export {default as Code} from './code/Code';
 // export {default as SmallText} from './smalltext/SmallText';
-// export {default as Copy} from './copy/Copy';
+export {default as Copy} from './copy/Copy';

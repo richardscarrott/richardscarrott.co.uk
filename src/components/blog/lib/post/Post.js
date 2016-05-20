@@ -1,30 +1,29 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import moment from 'moment';
 import transformMarkdown from '../../../../utils/transformMarkdown';
 import {
     H1,
-    H2,
     BodyText,
+    Copy,
     ActionText
 } from '../../../lib/typography/Typography';
+import Author from './author/Author';
 import styles from './Post.css';
 
-const DATE_FORMAT = 'Do MMMM, YYYY';
-
-function Post({ title, markdown, slug, published_at, excerpt, useH1, className }) {
-    debugger;
+function Post({ title, markdown, slug, published_at, author, excerpt, h1, className }) {
     return (
         <div className={classNames(styles.root, className)}>
-            <H1>
-                <ActionText to={`/blog/post/${slug}/`}>
-                    {title}
-                </ActionText>
+            <H1 weight="bold" elementType={h1 ? 'h1' : 'h2'}>
+                {excerpt ? (
+                    <ActionText to={`/blog/post/${slug}/`}>
+                        {title}
+                    </ActionText>
+                ) : title}
             </H1>
-            <BodyText>
-                {moment(published_at).format(DATE_FORMAT)}
-            </BodyText>
-            {transformMarkdown(markdown)}
+            <Author {...author} publishedAt={published_at} className={styles.author} />
+            <Copy>
+                {transformMarkdown(markdown, excerpt)}
+            </Copy>
         </div>
     );
 }
@@ -32,9 +31,11 @@ function Post({ title, markdown, slug, published_at, excerpt, useH1, className }
 Post.propTypes = {
     title: PropTypes.string.isRequired,
     markdown: PropTypes.string.isRequired,
-    excerpt: PropTypes.bool,
-    h1: PropTypes.bool,
-    className: PropTypes.string,
+    slug: PropTypes.string.isRequired,
+    published_at: PropTypes.string.isRequired,
+    author: PropTypes.object.isRequired,
+    excerpt: PropTypes.bool.isRequired,
+    className: PropTypes.string
 };
 
 Post.defaultProps = {

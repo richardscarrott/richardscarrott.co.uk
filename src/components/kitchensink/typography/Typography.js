@@ -8,13 +8,48 @@ import {
     IntroText,
     BodyText,
     Quote,
-    ActionText
+    Code,
+    ActionText,
+    Copy
 } from '../../lib/typography/Typography';
 import styles from './Typography.css';
 
 function Typography({ className }) {
     return (
         <div className={classNames(styles.root, className)}>
+            <Copy>
+                <H1 weight="bold">This is a title</H1>
+                <H2>This is a subtitle providing additional information</H2>
+                <IntroText>
+                     This is some intro text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some intro text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </IntroText>
+                <BodyText>
+                    This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </BodyText>
+                <BodyText>
+                    This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is some more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </BodyText>
+
+                <H3 weight="bold">This is a section title</H3>
+                <H4>This is a section subtitle</H4>
+                <BodyText>
+                    This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </BodyText>
+                <Code language="javascript">
+                    {`alert('This probably needs to be wrapped in a <pre> tag for multi-line code.');`}
+                </Code>
+                <H3 weight="bold">This is a section title</H3>
+                <BodyText>
+                    This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </BodyText>
+                <Quote className={styles.module}>Lorem ipsum dolor sit amet, consectetur adipiscing elit &mdash; Richard Scarrott</Quote>
+                <BodyText>
+                    This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                </BodyText>
+            </Copy>
+
+            <hr />
+
             <H1 className={styles.module}>Heading 1 Regular</H1>
             <H1 weight="bold" elementType="h2" className={styles.module}>Heading 1 Bold</H1>
 

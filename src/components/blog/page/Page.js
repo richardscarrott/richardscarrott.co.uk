@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { defaultTo } from 'ramda';
-// Would it be better to create a PostComponent which has an excerpt option, yes it would.
-import { transformExcerpt } from '../../../utils/transformMarkdown';
 import { fetchPostsIfNeeded } from '../../../actions/blog/blog';
 import {
     getPageIsFetching,
@@ -15,18 +13,23 @@ import {
     H1,
     ActionText
 } from '../../lib/typography/Typography';
+import Post from '../lib/post/Post';
+import styles from './Page.css';
 
 const getPageNumber = defaultTo(1);
 
-class Page extends Component {
+class PageContainer extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            show: false
+        };
         this.handleRetry = this.handleRetry.bind(this);
     }
 
     componentDidMount() {
-        Page.fetchData({
+        PageContainer.fetchData({
             store: this.context.store,
             params: this.props.params
         });
@@ -34,7 +37,7 @@ class Page extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.params.pageNumber !== this.props.params.pageNumber) {
-            Page.fetchData({
+            PageContainer.fetchData({
                 store: this.context.store,
                 params: nextProps.params
             });
@@ -42,48 +45,38 @@ class Page extends Component {
     }
 
     handleRetry() {
-        Page.fetchData({
+        PageContainer.fetchData({
             store: this.context.store,
             params: this.props.params
         });
     }
 
     render() {
-        const posts = this.props.posts.map(post => {
-            return (
-                <div key={post.id}>
-                    <H1>
-                        <ActionText to={`/blog/post/${post.slug}/`}>
-                            {post.title}
-                        </ActionText>
-                    </H1>
-                    {transformExcerpt(post.markdown)}
-                </div>
-            );
-        });
+        const { isFetching, error, posts } = this.props;
         return (
-            <div>
-                <Helmet title="Page" />
-                <Link to="/page/1">Page 1</Link>
-                <Link to="/page/2">Page 2</Link>
-                <Link to="/page/3">Page 3</Link>
-                {this.props.isFetching ? (
+            <div className={styles.root}>
+                <Helmet title="Blog" />
+                {isFetching ? (
                     <div>Loading...</div>
                 ) : null}
-                {this.props.error ? (
-                    <div onClick={this.handleRetry}>Error... {this.props.error}</div>
+                {error ? (
+                    <div onClick={this.handleRetry}>Error... {error}</div>
                 ) : null}
-                {posts}
+                {posts.map((post, i) => {
+                    return (
+                        <Post {...post} excerpt h1={i === 0} className={styles.post} />
+                    );
+                })}
             </div>
         );
     }
 }
 
-Page.contextTypes = {
+PageContainer.contextTypes = {
     store: PropTypes.object.isRequired
 };
 
-Page.fetchData = function({ store, params }) {
+PageContainer.fetchData = function({ store, params }) {
     const pageNumber = getPageNumber(parseInt(params.pageNumber, 10));
     return store.dispatch(fetchPostsIfNeeded(pageNumber));
 };
@@ -101,4 +94,4 @@ function mapStateToProps(state, props) {
     };
 }
 
-export default connect(mapStateToProps)(Page);
+export default connect(mapStateToProps)(PageContainer);

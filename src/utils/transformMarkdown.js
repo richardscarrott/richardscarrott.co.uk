@@ -5,6 +5,7 @@ import {
     H2,
     H3,
     H4,
+    IntroText,
     BodyText,
     ActionText,
     Quote,
@@ -16,26 +17,25 @@ import reactRenderer from 'remark-react';
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
 
-function transform(markdown) {
-    const input = markdown.replace(EXCERPT_SEPARATOR, '');
-    return remark().use(reactRenderer, {
-        remarkReactComponents: {
-            h1: props => <H1 weight="bold" {...props} />,
-            h2: props => <H2 weight="bold" {...props} />,
-            h3: props => <H3 weight="bold" {...props} />,
-            h4: props => <H4 weight="bold" {...props} />,
-            h5: props => <H4 weight="bold" {...props} />,
-            p: BodyText,
-            a: ActionText,
-            blockquote: Quote,
-            img: ({ src, ...other }) => <Image {...other} src={src} aspectRatio={url.parse(src, true).query.ratio} />,
-            code: ({ className, ...other }) => <Code {...other} language={className.split('-')[1]} />
-        }
-    }).process(input);
+const renderer = remark().use(reactRenderer, {
+    remarkReactComponents: {
+        h1: props => <H1 weight="bold" {...props} />,
+        h2: H2,
+        h3: props => <H3 weight="bold" {...props} />,
+        h4: H4,
+        h5: IntroText,
+        p: BodyText,
+        a: ActionText,
+        blockquote: Quote,
+        img: ({ src, ...other }) => <Image {...other} src={src} aspectRatio={url.parse(src, true).query.ratio} />,
+        code: ({ className, ...other }) => <Code {...other} language={className.split('-')[1]} />
+    }
+});
+
+function transformMarkdown(markdown, excerpt) {
+    let input = excerpt ? markdown.split(EXCERPT_SEPARATOR)[0] : markdown;
+    input = input.replace(EXCERPT_SEPARATOR, '');
+    return renderer.process(input);
 }
 
-export function transformExcerpt(markdown) {
-    return transform(markdown.split(EXCERPT_SEPARATOR)[0]);
-}
-
-export default transform;
+export default transformMarkdown;

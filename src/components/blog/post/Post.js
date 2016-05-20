@@ -49,7 +49,7 @@ class PostContainer extends Component {
         } else if (error) {
             content = <div onClick={this.handleRetry}>ERROR</div>
         } else if (post) {
-            content = <Post {...post} />
+            content = <Post {...post} h1 />
         } else {
             return null;
         }

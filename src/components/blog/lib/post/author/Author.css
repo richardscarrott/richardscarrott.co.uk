@@ -1,0 +1,22 @@
+@import '../../../../../root.css';
+
+:root {
+    --imageSize: 25px;
+}
+
+.root {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    overflow: hidden;
+    width: var(--imageSize);
+    height: var(--imageSize);
+    border-radius: var(--imageSize);
+    margin-right: 6px;
+}
+
+.name {
+    color: var(--grey);
+}

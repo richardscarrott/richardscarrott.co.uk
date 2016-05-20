@@ -12,6 +12,7 @@ hjs.registerLanguage('css', css);
 hjs.registerLanguage('xml', xml);
 
 function Code({ language, children, className, ...other }) {
+    console.log(language, children);
     const result = language ? hjs.highlight(language, children) : hjs.highlightAuto(children);
     return (
         <code {...other} className={classNames(styles.root, className, 'hljs', language)} dangerouslySetInnerHTML={{

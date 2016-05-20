@@ -1,4 +1,5 @@
 :root {
+    --avenirnext: 'Avenir Next', 'Open Sans', sans-serif;
     --darkgrey: #4A4A4A;
     --grey: #9E9E9E;
     --lightgrey: #F2F2F2;
@@ -7,4 +8,8 @@
     --darkblue: darkblue;
     --purple: purple;
     --deeppurple: deeppurple;
+}
+
+* {
+    box-sizing: border-box;
 }
