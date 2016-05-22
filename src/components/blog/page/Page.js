@@ -13,6 +13,7 @@ import {
     H1,
     ActionText
 } from '../../lib/typography/Typography';
+import Loader from '../../lib/loader/Loader';
 import Post from '../lib/post/Post';
 import styles from './Page.css';
 
@@ -23,7 +24,8 @@ class PageContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false
+            show1: false,
+            show2: false
         };
         this.handleRetry = this.handleRetry.bind(this);
     }
@@ -56,8 +58,24 @@ class PageContainer extends Component {
         return (
             <div className={styles.root}>
                 <Helmet title="Blog" />
+                <span onClick={() => {
+                    this.setState({
+                        show1: !this.state.show1
+                    });
+                }}>
+                    Show 1
+                </span>
+                <span onClick={() => {
+                    this.setState({
+                        show2: !this.state.show2
+                    });
+                }}>
+                    Show 2
+                </span>
+                {this.state.show1 ? <Loader /> : null}
+                {this.state.show2 ? <Loader /> : null}
                 {isFetching ? (
-                    <div>Loading...</div>
+                    <Loader />
                 ) : null}
                 {error ? (
                     <div onClick={this.handleRetry}>Error... {error}</div>

@@ -2,7 +2,11 @@
 
 function filter(filterFn, middleware) {
     return (req, res, next) => filterFn(req)
-        ? middleware(req, res, next) : next();
+        ? (
+            setTimeout(() => {
+                middleware(req, res, next)
+            }, 5000)
+        ) : next();
 }
 
 module.exports = filter;

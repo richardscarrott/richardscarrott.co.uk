@@ -90,7 +90,8 @@ function page(state = {
             return {
                 ...state,
                 isFetching: true,
-                error: null
+                error: null,
+                posts: null
             };
         case FETCH_POSTS_SUCCESS:
             return {

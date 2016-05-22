@@ -54,6 +54,7 @@ function shouldFetchActivity(state) {
 
 export function fetchActivityIfNeeded() {
     return (dispatch, getState) => {
+        // TODO: Should this return Promise.resolve() if not fetching...
         if (shouldFetchActivity(getState())) {
             return dispatch(fetchActivity());
         }

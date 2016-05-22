@@ -1,0 +1,56 @@
+.root {
+    height: 3px;
+}
+
+.fill {
+    display: block;
+    height: 100%;
+    background: blue;
+    /*width: 90%;*/
+    transition: all 500ms ease-out;
+    width: 90%;
+    opacity: 1;
+}
+
+.animate .fill {
+    animation: progress 5s;
+    transition: none;
+}
+
+.complete .fill {
+    width: 100%;
+    opacity: 0
+}
+
+:global(.example-leave) .fill {
+    /*opacity: 1;*/
+    /*width: 50%;*/
+}
+
+:global(.example-leave-active) .fill {
+    /*opacity: 0.01;
+    transition: all 500ms ease-out;
+    width: 100%;
+    animation: none;*/
+}
+
+@keyframes progress {
+    0%   {
+        width: 0;
+    }
+    100% {
+        width: 90%;
+    }
+}
+
+
+/*<Motion defaultStyle={defaultStyle} style={style}>
+            {value => (
+                <div className={classNames(styles.root, className)}>
+                    <span className={styles.fill} style={{
+                        width: `${value.width}%`,
+                        opacity: value.opacity
+                    }} />
+                </div>
+            )}
+        </Motion>*/

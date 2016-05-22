@@ -1,12 +1,14 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
 import Header from './header/Header';
+import ProgressBar from './progressbar/ProgressBar';
 import styles from './App.css';
 
 const DEFAULT_TITLE = 'Richard Scarrott, Frontend Web Developer';
 
-function App({ children }) {
+function App({ showProgressBar, children }) {
     return (
         <div className={styles.root}>
             <Helmet
@@ -19,6 +21,7 @@ function App({ children }) {
                     }
                 ]} />
             <Header className={styles.header} />
+            <ProgressBar active={showProgressBar} className={styles.progressBar} />
             <div className={styles.content}>
                 {children}
             </div>
@@ -27,7 +30,14 @@ function App({ children }) {
 }
 
 App.propTypes = {
+    showProgressBar: PropTypes.bool.isRequired,
     children: PropTypes.element
 };
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        showProgressBar: !!state.ui.activity
+    };
+}
+
+export default connect(mapStateToProps)(App);
