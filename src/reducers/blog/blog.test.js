@@ -16,6 +16,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(void 0, {})
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -32,6 +33,7 @@ describe('reducers/blog/blog', () => {
             }
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -41,6 +43,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -78,11 +81,18 @@ describe('reducers/blog/blog', () => {
                     }
                 },
                 result: {
+                    meta: {
+                        pagination: {
+                            page: 1,
+                            pages: 3
+                        }
+                    },
                     posts: [1, 2]
                 }
             }
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -98,6 +108,9 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: {
+                pages: 3
+            },
             entities: {
                 posts: {
                     'post-1': {
@@ -140,6 +153,7 @@ describe('reducers/blog/blog', () => {
             payload: 'Bad Request'
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -155,6 +169,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -177,6 +192,7 @@ describe('reducers/blog/blog', () => {
             }
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {},
                 authors: {}
@@ -186,6 +202,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {
                     'post-1': {
@@ -225,6 +242,7 @@ describe('reducers/blog/blog', () => {
             }
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {
                     isFetching: true,
@@ -238,6 +256,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {
                     'post-1': {
@@ -267,6 +286,7 @@ describe('reducers/blog/blog', () => {
             payload: 'Bad Request'
         };
         const state = {
+            pagination: null,
             entities: {
                 posts: {
                     'post-1': {
@@ -281,6 +301,7 @@ describe('reducers/blog/blog', () => {
         expect(
             reducer(state, action)
         ).toEqual({
+            pagination: null,
             entities: {
                 posts: {
                     'post-1': {

@@ -10,7 +10,8 @@ import {
     getPageHasData,
     getPostIsFetching,
     getPostError,
-    getPost
+    getPost,
+    getPagination
 } from './blog';
 
 describe('selectors/blog/blog', () => {
@@ -390,6 +391,31 @@ describe('selectors/blog/blog', () => {
             const getPost999 = partial(getPost, [999, state]);
             expect(getPost999).not.toThrow();
             expect(getPost999()).toBeNothing();
+        });
+    });
+
+    describe('getPagination', () => {
+        it('returns Nothing when pagination does not exist', () => {
+            const state = {
+                blog: {
+                    pagination: null
+                }
+            };
+            const result = getPagination(state);
+            expect(result).toBeNothing();
+        });
+
+        it('returns pagination when pagination exists', () => {
+            const state = {
+                blog: {
+                    pagination: {
+                        pages: 4
+                    }
+                }
+            };
+            const result = getPagination(state);
+            expect(result).toBeJust();
+            expect(result.getOrElse({})).toBe(state.blog.pagination);
         });
     });
 });

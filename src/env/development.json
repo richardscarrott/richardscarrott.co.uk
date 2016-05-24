@@ -1,8 +1,8 @@
 {
     // Env files support comments
     "CLIENT_ENV": "development",
-    "API_ENDPOINT": "/api",
-    "GHOST_API_ENDPOINT": "/ghost/api/v0.1",
+    "API_ENDPOINT": "http://localhost:6060/api",
+    "GHOST_API_ENDPOINT": "http://localhost:6060/ghost/api/v0.1",
     "GHOST_API_CLIENT_ID": "ghost-frontend",
     "GHOST_API_CLIENT_SECRET": "06b9f5556fda"
 }

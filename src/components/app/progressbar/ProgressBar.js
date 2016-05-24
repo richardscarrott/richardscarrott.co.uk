@@ -61,7 +61,7 @@ class ProgressBar extends Component {
 }
 
 ProgressBar.propTypes = {
-    active: PropTypes.number.isRequired,
+    active: PropTypes.bool.isRequired,
     className: PropTypes.string
 };
 

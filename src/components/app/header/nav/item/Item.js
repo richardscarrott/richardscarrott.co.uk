@@ -22,9 +22,13 @@ function Item({ to, active, children, className, ...other }) {
 
 Item.propTypes = {
     to: PropTypes.string.isRequired,
-    active: PropTypes.string.isRequired,
+    active: PropTypes.bool.isRequired,
     children: PropTypes.string.isRequired,
     className: PropTypes.string
+};
+
+Item.defaultProps = {
+    active: false
 };
 
 export default Item;

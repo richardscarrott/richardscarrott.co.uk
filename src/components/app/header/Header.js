@@ -4,9 +4,9 @@ import Logo from './logo/Logo';
 import Nav from './nav/Nav';
 import styles from './Header.css';
 
-function Header({ className }) {
+function Header({ className, ...other }) {
     return (
-        <div className={classNames(styles.root, className)}>
+        <div {...other} className={classNames(styles.root, className)}>
             <Logo className={styles.logo} />
             <Nav className={styles.nav} />
         </div>

@@ -8,6 +8,7 @@ import {
     getPostError,
     getPost
 } from '../../../selectors/blog/blog';
+import Loader from '../../lib/loader/Loader';
 import Post from '../lib/post/Post';
 import styles from './Post.css';
 
@@ -45,7 +46,7 @@ class PostContainer extends Component {
         const { isFetching, error, post } = this.props;
         let content;
         if (isFetching) {
-            content = <div>LOADING</div>
+            content = <Loader />
         } else if (error) {
             content = <div onClick={this.handleRetry}>ERROR</div>
         } else if (post) {
@@ -71,8 +72,6 @@ PostContainer.fetchData = function({ store, params }) {
 
 function mapStateToProps(state, props) {
     const slug = props.params.slug;
-    var a = getPost(slug, state).getOrElse(null);
-    var b = getPost(slug, state).getOrElse(null);
     return {
         isFetching: getPostIsFetching(slug, state).getOrElse(false),
         error: getPostError(slug, state).getOrElse(null),

@@ -8,7 +8,7 @@ import Header from './Header';
 
 Error.stackTraceLimit = 10;
 
-describe('components/lib/typography/header/Header', () => {
+describe('components/app/header/Header', () => {
 
     it('accepts a custom className', () => {
         const wrapper = shallow(

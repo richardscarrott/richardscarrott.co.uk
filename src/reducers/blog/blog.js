@@ -124,7 +124,19 @@ function pages(state = {}, action) {
     }
 }
 
+function pagination(state = null, action) {
+    switch(action.type) {
+        case FETCH_POSTS_SUCCESS:
+            return {
+                pages: action.payload.result.meta.pagination.pages
+            };
+        default:
+            return state;
+    }
+}
+
 const blog = combineReducers({
+    pagination,
     pages,
     entities
 });

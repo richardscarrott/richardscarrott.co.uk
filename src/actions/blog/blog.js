@@ -60,7 +60,6 @@ function fetchPosts(page) {
 }
 
 function shouldFetchPosts(page, state) {
-    return true;
     const hasData = getPageHasData(page, state).getOrElse(false);
     const isFetching = getPageIsFetching(page, state).getOrElse(false);
     return !hasData && !isFetching;

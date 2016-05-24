@@ -2,12 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { defaultTo } from 'ramda';
+import { __, curry, compose, defaultTo } from 'ramda';
 import { fetchPostsIfNeeded } from '../../../actions/blog/blog';
 import {
     getPageIsFetching,
     getPageError,
-    getPage
+    getPage,
+    getPagination
 } from '../../../selectors/blog/blog';
 import {
     H1,
@@ -15,9 +16,13 @@ import {
 } from '../../lib/typography/Typography';
 import Loader from '../../lib/loader/Loader';
 import Post from '../lib/post/Post';
+import Pagination from './pagination/Pagination';
 import styles from './Page.css';
 
-const getPageNumber = defaultTo(1);
+const getPageNumber = compose(
+    defaultTo(1),
+    curry(parseInt)(__, 10)
+);
 
 class PageContainer extends Component {
 
@@ -42,6 +47,12 @@ class PageContainer extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.params.pageNumber !== this.props.params.pageNumber) {
+            window.scrollTo(0, 0);
+        }
+    }
+
     handleRetry() {
         PageContainer.fetchData({
             store: this.context.store,
@@ -50,7 +61,7 @@ class PageContainer extends Component {
     }
 
     render() {
-        const { isFetching, error, posts } = this.props;
+        const { isFetching, error, posts, params, pagination } = this.props;
         return (
             <div className={styles.root}>
                 <Helmet title="Blog" />
@@ -60,11 +71,16 @@ class PageContainer extends Component {
                 {error ? (
                     <div onClick={this.handleRetry}>Error... {error}</div>
                 ) : null}
-                {posts.map((post, i) => {
-                    return (
-                        <Post {...post} excerpt h1={i === 0} className={styles.post} />
-                    );
-                })}
+                {posts.length ? (
+                    <div className={styles.posts}>
+                        {posts.map((post, i) => {
+                            return (
+                                <Post {...post} key={post.id} excerpt h1={i === 0} className={styles.post} />
+                            );
+                        })}
+                        <Pagination {...pagination} page={getPageNumber(params.pageNumber)} className={styles.pagination} />
+                    </div>
+                ) : null}
             </div>
         );
     }
@@ -75,20 +91,22 @@ PageContainer.contextTypes = {
 };
 
 PageContainer.fetchData = function({ store, params }) {
-    const pageNumber = getPageNumber(parseInt(params.pageNumber, 10));
+    const pageNumber = getPageNumber(params.pageNumber);
     return store.dispatch(fetchPostsIfNeeded(pageNumber));
 };
 
 // Avoid creating a new instance everytime mapStateToProps is called to ensure
 // shouldComponentUpdate isn't invalidated.
 const EMPTY_POSTS = [];
+const EMPTY_PAGINATION = {};
 
 function mapStateToProps(state, props) {
-    const pageNumber = getPageNumber(parseInt(props.params.pageNumber, 10));
+    const pageNumber = getPageNumber(props.params.pageNumber);
     return {
         isFetching: getPageIsFetching(pageNumber, state).getOrElse(false),
         error: getPageError(pageNumber, state).getOrElse(false),
-        posts: getPage(pageNumber, state).getOrElse(EMPTY_POSTS)
+        posts: getPage(pageNumber, state).getOrElse(EMPTY_POSTS),
+        pagination: getPagination(state).getOrElse(EMPTY_PAGINATION)
     };
 }
 

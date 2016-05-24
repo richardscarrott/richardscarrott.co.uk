@@ -131,3 +131,8 @@ const getPostCombined = createSelector(
 );
 
 export { getPostCombined as getPost };
+
+export const getPagination = compose(
+    chain(safeProp('pagination')),
+    getBlog
+);
