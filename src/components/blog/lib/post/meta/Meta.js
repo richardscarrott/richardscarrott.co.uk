@@ -6,11 +6,11 @@ import {
     ActionText
 } from '../../../../lib/typography/Typography';
 import Image from '../../../../lib/image/Image';
-import styles from './Author.css';
+import styles from './Meta.css';
 
 const DATE_FORMAT = 'Do MMMM, YYYY';
 
-function Author({ name, website, image, publishedAt, className }) {
+function Meta({ name, website, image, publishedAt, className }) {
     image = <Image src={image} className={styles.image} />;
     return (
         <div className={classNames(styles.root, className)}>
@@ -19,7 +19,7 @@ function Author({ name, website, image, publishedAt, className }) {
                     {image}
                 </a>
             ) : image}
-            <BodyText className={styles.name}>
+            <BodyText className={styles.text}>
                 {website ? (
                     <ActionText href={website}>{name}</ActionText>
                 ) : name} on the {moment(publishedAt).format(DATE_FORMAT)}
@@ -28,7 +28,7 @@ function Author({ name, website, image, publishedAt, className }) {
     );
 }
 
-Author.propTypes = {
+Meta.propTypes = {
     name: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     website: PropTypes.string,
@@ -36,4 +36,4 @@ Author.propTypes = {
     className: PropTypes.string
 };
 
-export default Author;
+export default Meta;

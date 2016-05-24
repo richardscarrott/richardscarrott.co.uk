@@ -7,7 +7,7 @@ import {
     Copy,
     ActionText
 } from '../../../lib/typography/Typography';
-import Author from './author/Author';
+import Meta from './meta/Meta';
 import styles from './Post.css';
 
 function Post({ title, markdown, slug, published_at, author, excerpt, h1, className }) {
@@ -20,7 +20,7 @@ function Post({ title, markdown, slug, published_at, author, excerpt, h1, classN
                     </ActionText>
                 ) : title}
             </H1>
-            <Author {...author} publishedAt={published_at} className={styles.author} />
+            <Meta {...author} publishedAt={published_at} className={styles.meta} />
             <Copy>
                 {transformMarkdown(markdown, excerpt)}
             </Copy>
