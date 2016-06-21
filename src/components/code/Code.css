@@ -1,3 +1,122 @@
-.code {
-    background: red;
+ @import '../../root.css';
+
+.root {
+    color: var(--darkgrey);
+    font-family: var(--avenirnext);
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0 0 50px;
 }
+
+/* copied from <ActionText />...lame */
+.root a,
+.root a:link,
+.root a:visited {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+.root a:hover,
+.root a:focus {
+    text-decoration: underline;
+}
+
+.root a:active {
+    color: var(--darkblue);
+}
+
+.root a:visited {
+    color: var(--purple);
+}
+
+.root a:visited:active {
+    color: var(--deeppurple);
+}
+
+.root > div {
+    position: relative;
+    padding: 0 0 20px 40px;
+    border-bottom: 1px solid var(--lightgrey);
+    margin: 0 0 20px;
+}
+
+.root > div:last-child {
+    border: none;
+}
+
+.root :global(.dashboard-event-icon) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 30px 0 0;
+    width: 30px;
+    height: 30px;
+    color: var(--grey);
+}
+
+.root :global(.time) {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.root :global(.title) {
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.root :global(.simple) :global(.title),
+.root :global(.simple) :global(.time) {
+    display: inline;
+}
+
+.root :global(.details) {
+    position: relative;
+    padding: 0 0 0 40px;
+    min-height: 30px;
+    font-size: 14px;
+}
+
+.root :global(.details) :global(.gravatar) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.root :global(.commits) > ul > li {
+    margin: 0 0 6px;
+}
+
+.root :global(.commits) img {
+    vertical-align: bottom;
+    width: 20px;
+    height: 20px;
+}
+
+.root :global(.commits) :global(.message),
+.root :global(.commits) :global(.message) blockquote {
+    display: inline;
+}
+
+.root :global(.pull-info) {
+    display: inline-block;
+    padding: 3px 7px;
+    margin-top: 6px;
+    font-size: 12px;
+    color: rgba(0,0,0,0.5);
+    background: var(--lightgrey);
+    border-radius: 3px;
+}
+
+.root :global(.pull-info) svg {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.root :global(.pull-info) em {
+    font-weight: bold;
+}
+
+/*.news .alert .branch-link, .news .alert .pull-info*/

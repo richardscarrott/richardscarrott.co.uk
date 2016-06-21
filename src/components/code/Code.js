@@ -8,6 +8,7 @@ import {
     getEvents,
     getHasData
 } from '../../selectors/code/code';
+import styles from './Code.css'
 
 class Code extends Component {
 
@@ -33,7 +34,7 @@ class Code extends Component {
     render() {
         const { isFetching, error, events, hasData } = this.props;
         return (
-            <div>
+            <div className={styles.root}>
                 <Helmet title="Code" />
                 {isFetching ? (
                     <div>Loading...</div>
