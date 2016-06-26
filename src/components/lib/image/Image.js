@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import ReactCSSTransitionGroup from 'react/lib/ReactCssTransitionGroup';
+import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 // import Spinner from '../spinner/Spinner';
 import styles from './Image.css';
 

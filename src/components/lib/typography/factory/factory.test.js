@@ -1,14 +1,14 @@
 jest.unmock('classnames');
 jest.unmock('block-elements');
-jest.unmock('./Factory');
+jest.unmock('./factory');
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import factory from './Factory';
+import factory from './factory';
 
 Error.stackTraceLimit = 10;
 
-describe('components/lib/typography/factory/Factory', () => {
+describe('components/lib/typography/factory/factory', () => {
 
     let TestComponent;
 

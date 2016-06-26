@@ -1,5 +1,5 @@
 import React from 'react';
-import factory from '../factory/Factory';
+import factory from '../factory/factory';
 import styles from './IntroText.css';
 
 export default factory('IntroText', {
