@@ -3,8 +3,6 @@ import classNames from 'classnames';
 import { BodyText, ActionText } from '../../../lib/typography/Typography';
 import styles from './Pagination.css';
 
-console.log(styles);
-
 function Pagination({ page, pages, className }) {
     return (
         <div className={classNames(styles.root, className)}>
