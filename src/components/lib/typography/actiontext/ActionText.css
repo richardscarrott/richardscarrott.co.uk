@@ -4,7 +4,7 @@
  * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states/
  */
 
- @import '../../../../root.css';
+ @import '../../../../vars.css';
 
 .root,
 .root:link,

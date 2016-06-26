@@ -1,4 +1,4 @@
-@import '../../../../../root.css';
+@import '../../../../../vars.css';
 
 :root {
     --imageSize: 25px;

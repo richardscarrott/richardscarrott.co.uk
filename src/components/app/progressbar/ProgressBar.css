@@ -2,7 +2,7 @@
 because the HTML renders *before* the styles have actually downloaded so it
 transitions from no styles to background blue, width 100, opacity 0 etc. */
 
-@import '../../../root.css';
+@import '../../../vars.css';
 
 .root {
     height: 3px;

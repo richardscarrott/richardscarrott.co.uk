@@ -1,4 +1,4 @@
-@import '../../../../root.css';
+@import '../../../../vars.css';
 
 /* NOTE: .root > * is required because 'remark' drops in a nested BodyText component */
 .root,

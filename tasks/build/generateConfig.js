@@ -8,9 +8,10 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const path = require('path');
 const stripJsonComments = require('strip-json-comments');
 const fs = require('fs');
-const autoprefixer = require('autoprefixer');
-const customProperties = require('postcss-custom-properties');
-const postcssAspectRatio = require('postcss-aspect-ratio');
+const postCssImports = require('postcss-import');
+const postCssAutoprefixer = require('autoprefixer');
+const postCssCustomProperties = require('postcss-custom-properties');
+const postCssAspectRatio = require('postcss-aspect-ratio');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const DIST_DIR = path.join(__dirname, '../../dist');
@@ -44,10 +45,15 @@ module.exports = function generateConfig(options) {
             loaders: getLoaders(options)
         },
         postcss() {
+            // TODO: Find better css variable solution as postcss-custom-properties
+            // requires the use of postcss-import which means any webpack module
+            // resolution rules won't be adhered to -- seems like postcss plugins
+            // should be run on all css as once, i.e. via a webpack plugin not loader.
             return [
-                autoprefixer,
-                customProperties,
-                postcssAspectRatio
+                postCssImports,
+                postCssAutoprefixer,
+                postCssCustomProperties,
+                postCssAspectRatio
             ];
         },
         resolve: {
