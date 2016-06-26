@@ -12,6 +12,10 @@
     "test:debug": "node-debug ./node_modules/jest-cli/bin/jest.js",
     "test:watch": "jest --watch"
   },
+  "engines": {
+    "node": "4.4.4",
+    "npm": "2.15.5"
+  },
   "jest": {
     "testPathDirs": [
       "<rootDir>/src"
