@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "start": "npm run serve",
     "build": "node ./tasks/build",
     "serve": "node ./server",
