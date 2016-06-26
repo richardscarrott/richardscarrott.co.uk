@@ -8,7 +8,7 @@ function Header({ className, ...other }) {
     return (
         <div {...other} className={classNames(styles.root, className)}>
             <Logo className={styles.logo} />
-            <Nav className={styles.nav} />
+            {process.env.BLOG_ENABLED ? <Nav className={styles.nav} /> : null}
         </div>
     );
 }
