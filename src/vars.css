@@ -1,5 +1,7 @@
 :root {
     --avenirnext: 'Avenir Next', 'Open Sans', sans-serif;
+    --base-font-size: 16px;
+    --base-line-height: 22px;
     --darkgrey: #4A4A4A;
     --grey: #9E9E9E;
     --lightgrey: #F2F2F2;
