@@ -1,0 +1,15 @@
+@import '../../../../vars.css';
+
+.root {
+    font-family: monospace;
+    background: var(--lightgrey);
+    color: var(--darkgrey);
+    border-radius: 3px;
+    padding: 0.2em 0;
+}
+
+.root:before,
+.root:after {
+    letter-spacing: -0.2em;
+    content: '\00a0';
+}

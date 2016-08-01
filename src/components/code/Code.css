@@ -3,8 +3,8 @@
 .root {
     color: var(--darkgrey);
     font-family: var(--avenirnext);
-    font-size: 16px;
-    line-height: 20px;
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
     margin: 0 0 50px;
 }
 
