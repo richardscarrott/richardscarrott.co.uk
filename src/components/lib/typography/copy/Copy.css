@@ -12,7 +12,8 @@
 .root :global(.typography-introtext),
 .root :global(.typography-bodytext),
 .root :global(.typography-quote),
-.root :global(.typography-code) {
+.root :global(.typography-code),
+.root :global(.typography-list) {
     /*margin: 0 0 1.2em;*/
     margin: 1.2em 0;
 }
