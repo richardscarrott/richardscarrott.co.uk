@@ -10,7 +10,8 @@ import {
     Quote,
     Code,
     ActionText,
-    Copy
+    Copy,
+    List
 } from '../../lib/typography/Typography';
 import styles from './Typography.css';
 
@@ -35,6 +36,17 @@ function Typography({ className }) {
                 <BodyText>
                     This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
                 </BodyText>
+                <List>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                    </li>
+                    <li>
+                        Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate.
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text.
+                    </li>
+                </List>
                 <Code language="javascript">
                     {`alert('This probably needs to be wrapped in a <pre> tag for multi-line code.');`}
                 </Code>
@@ -46,6 +58,17 @@ function Typography({ className }) {
                 <BodyText>
                     This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
                 </BodyText>
+                <List ordered={true}>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate.
+                    </li>
+                    <li>
+                        Diam eu pretium. This is even more body text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus vulputate diam eu pretium.
+                    </li>
+                </List>
             </Copy>
 
             <hr />
@@ -86,6 +109,18 @@ function Typography({ className }) {
             </BodyText>
 
             <Quote className={styles.module}>Lorem ipsum dolor sit amet, consectetur adipiscing elit &mdash; Richard Scarrott</Quote>
+
+            <List>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Cras dapibus vulputate diam eu pretium.</li>
+                <li>Diam eu pretium.</li>
+            </List>
+
+            <List ordered={true}>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Cras dapibus vulputate diam eu pretium.</li>
+                <li>Diam eu pretium.</li>
+            </List>
         </div>
     );
 }

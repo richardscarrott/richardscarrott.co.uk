@@ -9,7 +9,8 @@ import {
     BodyText,
     ActionText,
     Quote,
-    Code
+    Code,
+    List
 } from '../components/lib/typography/Typography';
 import Image from '../components/lib/image/Image';
 import remark from 'remark';
@@ -17,6 +18,8 @@ import reactRenderer from 'remark-react';
 
 const EXCERPT_SEPARATOR = '<!-- more -->';
 
+// TODO: Strip html-style comments (ghost admin appears to do this).
+// TODO: Add support for inline code?
 const renderer = remark().use(reactRenderer, {
     remarkReactComponents: {
         h1: props => <H1 weight="bold" {...props} />,
@@ -28,7 +31,9 @@ const renderer = remark().use(reactRenderer, {
         a: ActionText,
         blockquote: Quote,
         img: ({ src, ...other }) => <Image {...other} src={src} aspectRatio={url.parse(src, true).query.ratio} />,
-        code: ({ className, ...other }) => <Code {...other} language={className.split('-')[1]} />
+        code: ({ className, ...other }) => <Code {...other} language={(className || '').split('-')[1]} />,
+        ul: List,
+        ol: props => <List {...props} ordered={true} />
     }
 });
 
