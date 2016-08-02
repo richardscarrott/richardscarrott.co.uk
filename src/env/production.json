@@ -3,6 +3,6 @@
     "API_ENDPOINT": "http://richardscarrott.co.uk/api",
     "GHOST_API_ENDPOINT": "http://richardscarrott.co.uk/ghost/api/v0.1",
     "GHOST_API_CLIENT_ID": "ghost-frontend",
-    "GHOST_API_CLIENT_SECRET": "06b9f5556fda", // TODO: obtain after initial prod build
+    "GHOST_API_CLIENT_SECRET": "06d0bab4c7ac",
     "BLOG_ENABLED": false
 }
