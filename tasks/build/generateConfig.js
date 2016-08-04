@@ -26,9 +26,7 @@ const ENV_CONFIG_PATH = path.join(SRC_DIR, 'env', `${CLIENT_ENV}.json`);
  * @param {Boolean}  options.debug                Debug mode.
  * @param {Boolean}  options.sourceMaps           Output source maps.
  * @param {Boolean}  options.hot                  Use HMR.
- * @param {Boolean}  options.staticFileNames      Use static file name (Good for tests).
  * @param {Boolean}  options.optimize             Optimize output for release.
- * @param {Boolean}  options.staticClassNames     Use static CSS module classNames (Good for tests).
  * @param {Boolean}  options.extractCss           Extract CSS into external file.
  * @param {Boolean}  options.stats                Output build stats.
  * @param {Boolean}  options.disableCodeSplitting Limits number of chunks to 1.
@@ -110,7 +108,7 @@ function getLoaders(options) {
     let loaders = [
         {
             test: /\.(jpe?g|png|gif|svg|woff|ttf|eot)$/i,
-            loader: options.staticFileNames ? 'file-loader?name=[name].[ext]' : 'url-loader?limit=10000'
+            loader: 'url-loader?limit=10000'
         }, {
             test: /\.json$/,
             loader: 'json-loader'
@@ -153,9 +151,7 @@ function getCssLoaders(options) {
     let cssLoaders;
     let cssModulesLoaders;
 
-    if (options.staticClassNames) {
-        cssModulesLoader = `${cssLoader}?modules&localIdentName=[local]`;
-    } else if (options.optimize) {
+    if (options.optimize) {
         cssModulesLoader = `${cssLoader}?modules`;
     } else {
         cssModulesLoader = `${cssLoader}?modules&localIdentName=[name]_[local]_[hash:base64:5]`;
