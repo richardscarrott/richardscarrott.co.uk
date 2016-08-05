@@ -1,2 +1,2 @@
 // Return a Proxy to emulate css modules
-module.exports = require('identity-obj-proxy');
+export { default as default } from 'identity-obj-proxy';
