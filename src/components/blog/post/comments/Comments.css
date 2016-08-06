@@ -1,0 +1,26 @@
+@import '../../../../vars.css';
+
+/* https://help.disqus.com/customer/portal/articles/545277 */
+.root a,
+.root a:link,
+.root a:visited {
+    color: var(--blue);
+}
+
+.root a:hover,
+.root a:focus {
+    text-decoration: underline;
+}
+
+.root a:active {
+    color: var(--darkblue);
+}
+
+.root a:visited {
+    color: var(--purple);
+}
+
+.root a:visited:active {
+    color: var(--deeppurple);
+}
+

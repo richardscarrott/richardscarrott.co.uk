@@ -10,6 +10,7 @@ import {
 } from '../../../selectors/blog/blog';
 import Loader from '../../lib/loader/Loader';
 import Post from '../lib/post/Post';
+import Comments from './comments/Comments';
 import styles from './Post.css';
 
 class PostContainer extends Component {
@@ -50,7 +51,12 @@ class PostContainer extends Component {
         } else if (error) {
             content = <div onClick={this.handleRetry}>ERROR</div>
         } else if (post) {
-            content = <Post {...post} h1 />
+            content = (
+                <div>
+                    <Post {...post} h1 />
+                    <Comments {...post} className={styles.comments} />
+                </div>
+            );
         } else {
             return null;
         }
