@@ -5,5 +5,5 @@
     "GHOST_API_CLIENT_ID": "ghost-frontend",
     "GHOST_API_CLIENT_SECRET": "06d0bab4c7ac",
     "DISQUS_SHORTNAME": "richardscarrott",
-    "BLOG_ENABLED": false
+    "BLOG_ENABLED": true
 }

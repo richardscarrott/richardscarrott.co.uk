@@ -8,6 +8,7 @@ import {
     getEvents,
     getHasData
 } from '../../selectors/code/code';
+import Loader from '../lib/loader/Loader';
 import styles from './Code.css'
 
 class Code extends Component {
@@ -37,7 +38,7 @@ class Code extends Component {
             <div className={styles.root}>
                 <Helmet title="Code" />
                 {isFetching ? (
-                    <div>Loading...</div>
+                    <Loader />
                 ) : null}
                 {error ? (
                     <div onClick={this.handleRetry}>Error... {this.props.error}</div>
