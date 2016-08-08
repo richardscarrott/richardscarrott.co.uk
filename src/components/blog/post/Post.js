@@ -53,6 +53,7 @@ class PostContainer extends Component {
         } else if (post) {
             content = (
                 <div>
+                    <Helmet title={post.title} />
                     <Post {...post} h1 />
                     <Comments {...post} className={styles.comments} />
                 </div>
