@@ -1,7 +1,7 @@
 {
     "CLIENT_ENV": "production",
-    "API_ENDPOINT": "http://richardscarrott.co.uk/api",
-    "GHOST_API_ENDPOINT": "http://richardscarrott.co.uk/ghost/api/v0.1",
+    "API_ENDPOINT": "https://richardscarrott.co.uk/api",
+    "GHOST_API_ENDPOINT": "https://richardscarrott.co.uk/ghost/api/v0.1",
     "GHOST_API_CLIENT_ID": "ghost-frontend",
     "GHOST_API_CLIENT_SECRET": "06d0bab4c7ac",
     "DISQUS_SHORTNAME": "richardscarrott",
