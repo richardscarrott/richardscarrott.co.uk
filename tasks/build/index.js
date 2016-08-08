@@ -17,7 +17,7 @@ function clean(done) {
 }
 
 /**
- * Copies static assets from /app -> /dist. i.e. favicon.ico, robots.txt etc.
+ * Copies static assets from /src -> /dist. i.e. favicon.ico, robots.txt etc.
  */
 function copy(done) {
     async.parallel([
@@ -26,7 +26,8 @@ function copy(done) {
         'browserconfig.xml',
         'robots.txt',
         'tile-wide.png',
-        'tile.png'
+        'tile.png',
+        'google54339ce9ce5144a6.html'
     ]
     .map(file => path.join(SRC_DIR, file))
     .map(filePath => fs.copy.bind(fs, filePath, path.join(DIST_DIR, path.basename(filePath)))), done);
