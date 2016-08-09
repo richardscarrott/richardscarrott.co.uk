@@ -11,11 +11,12 @@ import Meta from './meta/Meta';
 import styles from './Post.css';
 
 function Post({ title, markdown, slug, published_at, author, excerpt, h1, className }) {
+    const url = `/blog/post/${slug}/`;
     return (
         <div className={classNames(styles.root, className)}>
             <H1 weight="bold" elementType={h1 ? 'h1' : 'h2'}>
                 {excerpt ? (
-                    <ActionText to={`/blog/post/${slug}/`}>
+                    <ActionText to={url}>
                         {title}
                     </ActionText>
                 ) : title}
@@ -24,6 +25,13 @@ function Post({ title, markdown, slug, published_at, author, excerpt, h1, classN
             <Copy>
                 {transformMarkdown(markdown, excerpt)}
             </Copy>
+            {excerpt ? (
+                <BodyText className={styles.readMore}>
+                    <ActionText to={url}>
+                        Read more →
+                    </ActionText>
+                </BodyText>
+            ) : null}
         </div>
     );
 }

@@ -2,6 +2,12 @@
 
 }
 
-.meta {
+.meta,
+.readMore {
     margin: 1em 0;
+}
+
+.readMore {
+    display: flex;
+    justify-content: flex-end;
 }
