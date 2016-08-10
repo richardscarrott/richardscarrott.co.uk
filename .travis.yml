@@ -3,3 +3,6 @@ node_js:
   - "4"
 sudo: false
 before_install: npm i -g npm@2.15.5
+cache:
+  directories:
+    - node_modules
