@@ -1,6 +1,7 @@
 import 'css-reset';
 import 'root.css';
 import 'babel-polyfill';
+import 'autotrack/lib/plugins/url-change-tracker';
 import React from 'react';
 import { render } from 'react-dom';
 import { browserHistory } from 'react-router';

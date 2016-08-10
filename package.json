@@ -90,6 +90,7 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
+    "autotrack": "^1.0.0",
     "babel-polyfill": "^6.7.4",
     "block-elements": "^1.1.0",
     "cheerio": "^0.20.0",
