@@ -3,7 +3,7 @@ import {
     FETCH_GITHUB_ACTIVITY_REQUEST,
     FETCH_GITHUB_ACTIVITY_SUCCESS,
     FETCH_GITHUB_ACTIVITY_FAILURE
-} from '../../actions/code/code';
+} from 'actions/code/code';
 
 function activity(state = {
     isFetching: false,

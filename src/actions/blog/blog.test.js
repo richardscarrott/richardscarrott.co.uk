@@ -1,15 +1,15 @@
-jest.unmock('./blog');
-jest.unmock('../../selectors/blog/blog');
+jest.unmock('actions/blog/blog');
+jest.unmock('selectors/blog/blog');
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as api from '../../api/blog/blog';
+import * as api from 'api/blog/blog';
 import {
     FETCH_POSTS_REQUEST,
     FETCH_POSTS_SUCCESS,
     FETCH_POSTS_FAILURE,
     fetchPostsIfNeeded
-} from './blog';
+} from 'actions/blog/blog';
 
 const mockStore = configureMockStore([
     thunk

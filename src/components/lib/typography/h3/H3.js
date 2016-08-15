@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
-import factory from '../factory/factory';
-import styles from './H3.css';
+import factory from 'components/lib/typography/factory/factory';
+import styles from 'components/lib/typography/h3/H3.css';
 
 export default factory('H3', {
     styles,

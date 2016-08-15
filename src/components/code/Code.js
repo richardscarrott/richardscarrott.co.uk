@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import { fetchActivityIfNeeded } from '../../actions/code/code';
+import { fetchActivityIfNeeded } from 'actions/code/code';
 import {
     getIsFetching,
     getError,
     getEvents,
     getHasData
-} from '../../selectors/code/code';
-import Loader from '../lib/loader/Loader';
-import styles from './Code.css'
+} from 'selectors/code/code';
+import Loader from 'components/lib/loader/Loader';
+import styles from 'components/code/Code.css'
 
 class Code extends Component {
 

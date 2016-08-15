@@ -5,7 +5,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import css from 'highlight.js/lib/languages/css';
 import xml from 'highlight.js/lib/languages/xml';
 import 'highlight.js/styles/zenburn.css';
-import styles from './Code.css';
+import styles from 'components/lib/typography/code/Code.css';
 
 hjs.registerLanguage('javascript', javascript);
 hjs.registerLanguage('css', css);

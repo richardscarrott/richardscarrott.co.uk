@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 // import Spinner from '../spinner/Spinner';
-import styles from './Image.css';
+import styles from 'components/lib/image/Image.css';
 
 export const status = {
     PENDING: 'PENDING',

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router';
-import styles from './ActionText.css';
+import styles from 'components/lib/typography/actiontext/ActionText.css';
 
 function ActionText({ to, href, type, className, ...other }) {
     let Type = 'span';

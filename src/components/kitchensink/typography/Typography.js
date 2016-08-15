@@ -13,8 +13,8 @@ import {
     Copy,
     List,
     InlineCode
-} from '../../lib/typography/Typography';
-import styles from './Typography.css';
+} from 'components/lib/typography/Typography';
+import styles from 'components/kitchensink/typography/Typography.css';
 
 function Typography({ className }) {
     return (

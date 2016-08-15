@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import { BodyText, ActionText } from '../../../lib/typography/Typography';
-import styles from './Pagination.css';
+import { BodyText, ActionText } from 'components/lib/typography/Typography';
+import styles from 'components/blog/page/pagination/Pagination.css';
 
 function Pagination({ page, pages, className }) {
     return (

@@ -1,7 +1,7 @@
-jest.unmock('./code');
+jest.unmock('api/code/code');
 
-import fetch from '../../utils/fetch';
-import { fetchActivity } from './code';
+import fetch from 'utils/fetch';
+import { fetchActivity } from 'api/code/code';
 
 describe('api/code/code', () => {
 

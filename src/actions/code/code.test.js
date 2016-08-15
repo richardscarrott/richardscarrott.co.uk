@@ -1,15 +1,15 @@
-jest.unmock('./code');
-jest.unmock('../../selectors/code/code');
+jest.unmock('actions/code/code');
+jest.unmock('selectors/code/code');
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import * as api from '../../api/code/code';
+import * as api from 'api/code/code';
 import {
     FETCH_GITHUB_ACTIVITY_REQUEST,
     FETCH_GITHUB_ACTIVITY_SUCCESS,
     FETCH_GITHUB_ACTIVITY_FAILURE,
     fetchActivityIfNeeded
-} from './code';
+} from 'actions/code/code';
 
 const mockStore = configureMockStore([
     thunk

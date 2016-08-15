@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import mat4CSSParse from 'mat4-css-parse';
-import styles from './ProgressBar.css';
+import styles from 'components/app/progressbar/ProgressBar.css';
 
 class ProgressBar extends Component {
 

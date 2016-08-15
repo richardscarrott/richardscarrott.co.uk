@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Logo from './logo/Logo';
-import Nav from './nav/Nav';
-import styles from './Header.css';
+import Logo from 'components/app/header/logo/Logo';
+import Nav from 'components/app/header/nav/Nav';
+import styles from 'components/app/header/Header.css';
 
 function Header({ className, ...other }) {
     return (

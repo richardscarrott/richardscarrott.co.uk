@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import blockElements from 'block-elements';
-import styles from './factory.css';
+import styles from 'components/lib/typography/factory/factory.css';
 
 function isBlockElement(elementType) {
     return blockElements.includes(elementType);

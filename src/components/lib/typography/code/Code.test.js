@@ -1,11 +1,11 @@
 jest.unmock('classnames');
-jest.unmock('./Code');
+jest.unmock('components/lib/typography/code/Code');
 
 import React from 'react';
 import { Link } from 'react-router';
 import { shallow } from 'enzyme';
 import hjs from 'highlight.js/lib/highlight';
-import Code from './Code';
+import Code from 'components/lib/typography/code/Code';
 
 Error.stackTraceLimit = 10;
 

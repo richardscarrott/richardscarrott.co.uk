@@ -2,16 +2,16 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
-import { fetchPostIfNeeded } from '../../../actions/blog/blog';
+import { fetchPostIfNeeded } from 'actions/blog/blog';
 import {
     getPostIsFetching,
     getPostError,
     getPost
-} from '../../../selectors/blog/blog';
-import Loader from '../../lib/loader/Loader';
-import Post from '../lib/post/Post';
-import Comments from './comments/Comments';
-import styles from './Post.css';
+} from 'selectors/blog/blog';
+import Loader from 'components/lib/loader/Loader';
+import Post from 'components/blog/lib/post/Post';
+import Comments from 'components/blog/post/comments/Comments';
+import styles from 'components/blog/post/Post.css';
 
 class PostContainer extends Component {
 

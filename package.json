@@ -17,6 +17,9 @@
     "npm": "2.15.5"
   },
   "jest": {
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
     "testPathDirs": [
       "<rootDir>/src"
     ],

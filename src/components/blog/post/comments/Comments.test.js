@@ -1,10 +1,10 @@
 jest.unmock('classnames');
-jest.unmock('./Comments');
+jest.unmock('components/blog/post/comments/Comments');
 
 import React from 'react';
 import ReactDisqusThread from 'react-disqus-thread';
 import { shallow } from 'enzyme';
-import Comments from './Comments';
+import Comments from 'components/blog/post/comments/Comments';
 
 Error.stackTraceLimit = 10;
 

@@ -1,6 +1,6 @@
 import { normalize, Schema, arrayOf } from 'normalizr';
-import fetch from '../../utils/fetch';
-import NetworkError from '../../utils/NetworkError';
+import fetch from 'utils/fetch';
+import NetworkError from 'utils/NetworkError';
 
 const posts = new Schema('posts', {
     idAttribute: 'slug'

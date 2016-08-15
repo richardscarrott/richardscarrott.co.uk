@@ -1,5 +1,5 @@
 jest.unmock('reselect');
-jest.unmock('./blog');
+jest.unmock('selectors/blog/blog');
 
 import { partial } from 'ramda';
 import { Maybe } from 'ramda-fantasy';
@@ -12,7 +12,7 @@ import {
     getPostError,
     getPost,
     getPagination
-} from './blog';
+} from 'selectors/blog/blog';
 
 describe('selectors/blog/blog', () => {
 

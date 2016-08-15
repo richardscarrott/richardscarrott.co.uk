@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import Item from './item/Item';
 import { Link, IndexLink } from 'react-router';
-import styles from './Nav.css';
+import Item from 'components/app/header/nav/item/Item';
+import styles from 'components/app/header/nav/Nav.css';
 
 function Nav({ className }, { location }) {
     return (

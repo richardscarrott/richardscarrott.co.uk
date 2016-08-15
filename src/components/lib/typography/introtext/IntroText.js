@@ -1,6 +1,6 @@
 import React from 'react';
-import factory from '../factory/factory';
-import styles from './IntroText.css';
+import factory from 'components/lib/typography/factory/factory';
+import styles from 'components/lib/typography/introtext/IntroText.css';
 
 export default factory('IntroText', {
     styles,

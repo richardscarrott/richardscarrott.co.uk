@@ -1,6 +1,6 @@
-jest.unmock('./blog');
+jest.unmock('reducers/blog/blog');
 
-import reducer from './blog';
+import reducer from 'reducers/blog/blog';
 import {
     FETCH_POSTS_REQUEST,
     FETCH_POSTS_SUCCESS,
@@ -8,7 +8,7 @@ import {
     FETCH_POST_REQUEST,
     FETCH_POST_SUCCESS,
     FETCH_POST_FAILURE
-} from '../../actions/blog/blog';
+} from 'actions/blog/blog';
 
 describe('reducers/blog/blog', () => {
 

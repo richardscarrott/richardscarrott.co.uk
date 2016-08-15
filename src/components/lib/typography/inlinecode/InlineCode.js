@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './InlineCode.css';
+import styles from 'components/lib/typography/inlinecode/InlineCode.css';
 
 function InlineCode({ className, ...other }) {
     return (

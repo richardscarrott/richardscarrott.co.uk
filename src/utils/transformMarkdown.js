@@ -12,8 +12,8 @@ import {
     Code,
     List,
     InlineCode
-} from '../components/lib/typography/Typography';
-import Image from '../components/lib/image/Image';
+} from 'components/lib/typography/Typography';
+import Image from 'components/lib/image/Image';
 import remark from 'remark';
 import reactRenderer from 'remark-react';
 

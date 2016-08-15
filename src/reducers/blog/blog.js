@@ -6,7 +6,7 @@ import {
     FETCH_POST_REQUEST,
     FETCH_POST_SUCCESS,
     FETCH_POST_FAILURE
-} from '../../actions/blog/blog';
+} from 'actions/blog/blog';
 
 function post(state = {
     isFetching: false,

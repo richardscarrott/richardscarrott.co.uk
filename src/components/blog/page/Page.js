@@ -3,21 +3,21 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { __, curry, compose, defaultTo } from 'ramda';
-import { fetchPostsIfNeeded } from '../../../actions/blog/blog';
+import { fetchPostsIfNeeded } from 'actions/blog/blog';
 import {
     getPageIsFetching,
     getPageError,
     getPage,
     getPagination
-} from '../../../selectors/blog/blog';
+} from 'selectors/blog/blog';
 import {
     H1,
     ActionText
-} from '../../lib/typography/Typography';
-import Loader from '../../lib/loader/Loader';
-import Post from '../lib/post/Post';
-import Pagination from './pagination/Pagination';
-import styles from './Page.css';
+} from 'components/lib/typography/Typography';
+import Loader from 'components/lib/loader/Loader';
+import Post from 'components/blog/lib/post/Post';
+import Pagination from 'components/blog/page/pagination/Pagination';
+import styles from 'components/blog/page/Page.css';
 
 const getPageNumber = compose(
     defaultTo(1),

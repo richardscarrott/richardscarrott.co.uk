@@ -1,6 +1,6 @@
 import React from 'react';
-import factory from '../factory/factory';
-import styles from './H1.css';
+import factory from 'components/lib/typography/factory/factory';
+import styles from 'components/lib/typography/h1/H1.css';
 
 export default factory('H1', {
     styles,

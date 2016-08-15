@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import Header from './header/Header';
-import ProgressBar from './progressbar/ProgressBar';
-import styles from './App.css';
+import Header from 'components/app/header/Header';
+import ProgressBar from 'components/app/progressbar/ProgressBar';
+import styles from 'components/app/App.css';
 
 const DEFAULT_TITLE = 'Richard Scarrott, Frontend Web Developer';
 

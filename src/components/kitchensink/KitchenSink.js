@@ -1,6 +1,6 @@
 import React from 'react';
-import Typography from './typography/Typography';
-import styles from './KitchenSink.css';
+import Typography from 'components/kitchensink/typography/Typography';
+import styles from 'components/kitchensink/KitchenSink.css';
 
 function KitchenSink() {
     return (
