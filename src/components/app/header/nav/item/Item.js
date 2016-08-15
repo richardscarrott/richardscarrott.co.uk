@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router';
 import {
     BodyText
-} from '../../../../lib/typography/Typography';
-import { Link } from 'react-router';
-import styles from './Item.css';
+} from 'components/lib/typography/Typography';
+import styles from 'components/app/header/nav/item/Item.css';
 
 function Item({ to, active, children, className, ...other }) {
     return (

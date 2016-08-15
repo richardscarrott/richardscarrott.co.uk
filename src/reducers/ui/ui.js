@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
     START_ACTIVITY,
     END_ACTIVITY
-} from '../../actions/ui/ui';
+} from 'actions/ui/ui';
 
 function activity(state = 0, action) {
     switch(action.type) {

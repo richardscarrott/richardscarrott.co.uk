@@ -1,6 +1,6 @@
 import React from 'react';
-import factory from '../factory/factory';
-import styles from './BodyText.css';
+import factory from 'components/lib/typography/factory/factory';
+import styles from 'components/lib/typography/bodytext/BodyText.css';
 
 export default factory('BodyText', {
     styles,

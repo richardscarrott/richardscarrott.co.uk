@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import styles from './List.css';
+import styles from 'components/lib/typography/list/List.css';
 
 function List({ ordered, className, ...other }) {
     const Type = ordered ? 'ol' : 'ul';

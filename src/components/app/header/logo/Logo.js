@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import {
     H1,
     IntroText
-} from '../../../lib/typography/Typography';
-import styles from './Logo.css';
+} from 'components/lib/typography/Typography';
+import styles from 'components/app/header/logo/Logo.css';
 
 function Logo({ className }) {
     return (

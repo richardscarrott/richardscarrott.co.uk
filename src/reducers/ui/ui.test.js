@@ -1,10 +1,10 @@
-jest.unmock('./ui');
+jest.unmock('reducers/ui/ui');
 
-import reducer from './ui';
+import reducer from 'reducers/ui/ui';
 import {
     START_ACTIVITY,
     END_ACTIVITY
-} from '../../actions/ui/ui';
+} from 'actions/ui/ui';
 
 describe('reducers/ui/ui', () => {
 

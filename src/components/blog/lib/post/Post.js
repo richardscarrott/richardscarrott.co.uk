@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import transformMarkdown from '../../../../utils/transformMarkdown';
+import transformMarkdown from 'utils/transformMarkdown';
 import {
     H1,
     BodyText,
     Copy,
     ActionText
-} from '../../../lib/typography/Typography';
-import Meta from './meta/Meta';
-import styles from './Post.css';
+} from 'components/lib/typography/Typography';
+import Meta from 'components/blog/lib/post/meta/Meta';
+import styles from 'components/blog/lib/post/Post.css';
 
 function Post({ title, markdown, slug, published_at, author, excerpt, h1, className }) {
     const url = `/blog/post/${slug}/`;

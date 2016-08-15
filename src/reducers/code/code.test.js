@@ -1,11 +1,11 @@
-jest.unmock('./code');
+jest.unmock('reducers/code/code');
 
-import reducer from './code';
+import reducer from 'reducers/code/code';
 import {
     FETCH_GITHUB_ACTIVITY_REQUEST,
     FETCH_GITHUB_ACTIVITY_SUCCESS,
     FETCH_GITHUB_ACTIVITY_FAILURE
-} from '../../actions/code/code';
+} from 'actions/code/code';
 
 describe('reducers/code/code', () => {
 

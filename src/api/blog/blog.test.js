@@ -1,9 +1,9 @@
-jest.unmock('./blog');
+jest.unmock('api/blog/blog');
 jest.unmock('normalizr');
 
-import fetch from '../../utils/fetch';
-import NetworkError from '../../utils/NetworkError';
-import { fetchPosts } from './blog';
+import fetch from 'utils/fetch';
+import NetworkError from 'utils/NetworkError';
+import { fetchPosts } from 'api/blog/blog';
 
 describe('api/blog/blog', () => {
 

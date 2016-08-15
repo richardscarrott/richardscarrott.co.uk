@@ -1,10 +1,10 @@
 jest.unmock('classnames');
-jest.unmock('./Header');
+jest.unmock('components/app/header/Header');
 
 import React from 'react';
 import { Link } from 'react-router';
 import { shallow } from 'enzyme';
-import Header from './Header';
+import Header from 'components/app/header/Header';
 
 Error.stackTraceLimit = 10;
 

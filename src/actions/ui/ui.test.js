@@ -1,11 +1,11 @@
-jest.unmock('./ui');
+jest.unmock('actions/ui/ui');
 
 import {
     START_ACTIVITY,
     END_ACTIVITY,
     startActivity,
     endActivity
-} from './ui';
+} from 'actions/ui/ui';
 
 describe('actions/ui/ui', () => {
 

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import ReactDisqusThread from 'react-disqus-thread';
-import styles from './Comments.css';
+import styles from 'components/blog/post/comments/Comments.css';
 
 function Comments({ id, title, className, ...other }) {
     return (

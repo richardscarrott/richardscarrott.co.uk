@@ -1,6 +1,6 @@
 import React from 'react';
-import factory from '../factory/factory';
-import styles from './Quote.css';
+import factory from 'components/lib/typography/factory/factory';
+import styles from 'components/lib/typography/quote/Quote.css';
 
 export default factory('Quote', {
     styles,

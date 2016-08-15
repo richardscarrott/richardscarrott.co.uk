@@ -1,8 +1,8 @@
-import * as api from '../../api/code/code';
+import * as api from 'api/code/code';
 import {
     getIsFetching,
     getHasData
-} from '../../selectors/code/code';
+} from 'selectors/code/code';
 
 export const FETCH_GITHUB_ACTIVITY_REQUEST = 'FETCH_GITHUB_ACTIVITY_REQUEST';
 export const FETCH_GITHUB_ACTIVITY_SUCCESS = 'FETCH_GITHUB_ACTIVITY_SUCCESS';

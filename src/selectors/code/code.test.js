@@ -1,11 +1,11 @@
-jest.unmock('./code');
+jest.unmock('selectors/code/code');
 
 import {
     getIsFetching,
     getError,
     getEvents,
     getHasData
-} from './code';
+} from 'selectors/code/code';
 
 describe('selectors/code/code', () => {
 

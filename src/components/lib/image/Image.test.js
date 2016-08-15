@@ -1,9 +1,9 @@
 jest.unmock('classnames');
-jest.unmock('./Image');
+jest.unmock('components/lib/image/Image');
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import Image from './Image';
+import Image from 'components/lib/image/Image';
 
 Error.stackTraceLimit = 10;
 

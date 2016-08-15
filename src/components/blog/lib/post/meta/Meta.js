@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import {
     BodyText,
     ActionText
-} from '../../../../lib/typography/Typography';
-import Image from '../../../../lib/image/Image';
-import styles from './Meta.css';
+} from 'components/lib/typography/Typography';
+import Image from 'components/lib/image/Image';
+import styles from 'components/blog/lib/post/meta/Meta.css';
 
 const DATE_FORMAT = 'Do MMMM, YYYY';
 

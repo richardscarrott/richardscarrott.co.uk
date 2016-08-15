@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import {
     startActivity,
     endActivity
-} from '../../../actions/ui/ui';
+} from 'actions/ui/ui';
 
 class Loader extends Component {
 

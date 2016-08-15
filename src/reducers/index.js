@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
-import blog from './blog/blog';
-import code from './code/code';
-import ui from './ui/ui';
+import blog from 'reducers/blog/blog';
+import code from 'reducers/code/code';
+import ui from 'reducers/ui/ui';
 
 const rootReducer = combineReducers({
     routing,

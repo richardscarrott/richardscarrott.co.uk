@@ -1,10 +1,10 @@
-import * as api from '../../api/blog/blog';
+import * as api from 'api/blog/blog';
 import {
     getPageIsFetching,
     getPageHasData,
     getPostIsFetching,
     getPost
-} from '../../selectors/blog/blog';
+} from 'selectors/blog/blog';
 
 // TODO: Rename to fetchOnePost and fetchAllPosts for clarity?
 
