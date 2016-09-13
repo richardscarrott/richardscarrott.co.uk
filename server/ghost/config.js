@@ -20,10 +20,12 @@ module.exports = {
             },
             debug: false
         },
-
         server: {
             host: '0.0.0.0',
             port: config.PORT
+        },
+        paths: {
+            contentPath: path.join(__dirname, '/content/')
         }
     },
 
