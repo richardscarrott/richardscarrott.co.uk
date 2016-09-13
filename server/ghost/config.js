@@ -11,7 +11,7 @@ module.exports = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://richardscarrott.co.uk',
+        url: 'https://richardscarrott.co.uk',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -20,10 +20,12 @@ module.exports = {
             },
             debug: false
         },
-
         server: {
             host: '0.0.0.0',
             port: config.PORT
+        },
+        paths: {
+            contentPath: path.join(__dirname, '/content/')
         }
     },
 
