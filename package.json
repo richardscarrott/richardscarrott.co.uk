@@ -124,6 +124,7 @@
     "redux-logger": "^2.6.1",
     "redux-saga": "^0.11.1",
     "redux-thunk": "^2.0.1",
+    "regenerator-runtime": "^0.9.5",
     "remark": "^4.2.2",
     "remark-react": "^2.1.0",
     "reselect": "^2.5.1",

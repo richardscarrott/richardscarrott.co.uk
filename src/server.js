@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import React from 'react';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
