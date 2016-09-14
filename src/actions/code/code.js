@@ -11,6 +11,9 @@ export const FETCH_GITHUB_ACTIVITY_FAILURE = 'FETCH_GITHUB_ACTIVITY_FAILURE';
 function fetchActivityFailure(error) {
     return {
         type: FETCH_GITHUB_ACTIVITY_FAILURE,
+        meta: {
+            track: true
+        },
         payload: error.message
     }
 }
@@ -20,6 +23,7 @@ function fetchActivitySuccess(response) {
         type: FETCH_GITHUB_ACTIVITY_SUCCESS,
         meta: {
             receivedAt: Date.now(),
+            track: true
         },
         payload: response
     }

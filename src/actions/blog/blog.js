@@ -19,7 +19,8 @@ function fetchPostsFailure(page, error) {
     return {
         type: FETCH_POSTS_FAILURE,
         meta: {
-            page
+            page,
+            track: true
         },
         payload: error.message
     }
@@ -30,7 +31,8 @@ function fetchPostsSuccess(page, response) {
         type: FETCH_POSTS_SUCCESS,
         meta: {
             receivedAt: Date.now(),
-            page
+            page,
+            track: true
         },
         payload: response
     }
@@ -77,7 +79,8 @@ function fetchPostFailure(slug, error) {
     return {
         type: FETCH_POST_FAILURE,
         meta: {
-            slug
+            slug,
+            track: true
         },
         payload: error.message
     };
@@ -88,7 +91,8 @@ function fetchPostSuccess(slug, response) {
         type: FETCH_POST_SUCCESS,
         meta: {
             receivedAt: Date.now(),
-            slug
+            slug,
+            track: true
         },
         payload: response
     };

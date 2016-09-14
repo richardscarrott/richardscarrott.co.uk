@@ -113,7 +113,8 @@ describe('actions/blog/blog', () => {
                         type: FETCH_POSTS_SUCCESS,
                         meta: {
                             receivedAt: jasmine.any(Number),
-                            page: 1
+                            page: 1,
+                            track: true
                         },
                         payload: {
                             foo: 'bar'
@@ -137,7 +138,8 @@ describe('actions/blog/blog', () => {
                     expect(action).toEqual({
                         type: FETCH_POSTS_FAILURE,
                         meta: {
-                            page: 1
+                            page: 1,
+                            track: true
                         },
                         payload: 'Bad Request'
                     });
