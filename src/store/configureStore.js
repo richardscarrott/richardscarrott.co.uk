@@ -1,11 +1,16 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga'
 import fsa from 'middleware/fsa';
+import rootSaga from 'sagas';
 import rootReducer from 'reducers';
 
+const sagaMiddleware = createSagaMiddleware()
+
 const middleware = [
-    thunk
+    thunk,
+    sagaMiddleware
 ];
 
 if (process.env.BROWSER && process.env.CLIENT_ENV !== 'production') {
@@ -23,6 +28,8 @@ export default function configureStore(initialState) {
                 && window.devToolsExtension ? window.devToolsExtension() : f => f
         )
     );
+
+    sagaMiddleware.run(rootSaga);
 
     if (process.env.CLIENT_ENV !== 'production' && module.hot) {
         // Enable Webpack hot module replacement for reducers

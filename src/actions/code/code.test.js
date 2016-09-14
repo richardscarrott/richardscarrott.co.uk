@@ -90,6 +90,7 @@ describe('actions/code/code', () => {
                         type: FETCH_GITHUB_ACTIVITY_SUCCESS,
                         meta: {
                             receivedAt: jasmine.any(Number),
+                            track: true
                         },
                         payload: {
                             foo: 'bar'
@@ -115,6 +116,9 @@ describe('actions/code/code', () => {
                     expect(action).toBeFSA();
                     expect(action).toEqual({
                         type: FETCH_GITHUB_ACTIVITY_FAILURE,
+                        meta: {
+                            track: true
+                        },
                         payload: 'Bad Request'
                     });
                 });
