@@ -4,9 +4,7 @@ const webpack = require('webpack');
 const StatsPlugin = require('stats-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SimpleDefinePlugin = require('simple-define-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const path = require('path');
-const stripJsonComments = require('strip-json-comments');
 const fs = require('fs');
 const postCssImports = require('postcss-import');
 const postCssAutoprefixer = require('autoprefixer');
@@ -15,8 +13,6 @@ const postCssAspectRatio = require('postcss-aspect-ratio');
 
 const SRC_DIR = path.join(__dirname, '../../src');
 const DIST_DIR = path.join(__dirname, '../../dist');
-const CLIENT_ENV = process.env.CLIENT_ENV || 'development'; // eslint-disable-line no-process-env
-const ENV_CONFIG_PATH = path.join(SRC_DIR, 'env', `${CLIENT_ENV}.json`);
 
 /**
  * Generates the Webpack config.
@@ -37,8 +33,13 @@ module.exports = function generateConfig(options) {
     const config = {
         name: options.name,
         context: SRC_DIR,
-        entry: {},
-        output: {},
+        entry: {
+            [options.name]: [`./${options.name}`]
+        },
+        output: {
+            path: DIST_DIR,
+            filename: options.revision ? '[name].[chunkhash].js' : '[name].js'
+        },
         module: {
             loaders: getLoaders(options)
         },
@@ -61,15 +62,18 @@ module.exports = function generateConfig(options) {
         },
         target: options.node ? 'node' : 'web',
         debug: !!options.debug,
-        plugins: getPlugins(options, getEnvConfig(ENV_CONFIG_PATH))
+        plugins: getPlugins(options),
+        node: {
+            // Prevents the `process.env` defined on the `window` in Html.js
+            // from being re-defined inside modules by https://github.com/webpack/node-libs-browser
+            process: false
+        },
+        // NOTE: This will become the default bahviour in Webpack 2.x
+        bail: true
     };
 
-    if (options.test) {
-        config.output.libraryTarget = 'commonjs2';
-    } else {
-        config.entry[options.name] = [`./${options.name}`];
-        config.output.path = DIST_DIR;
-        config.output.filename = options.revision ? '[name].[chunkhash].js' : '[name].js';
+    if (options.publicPath) {
+        config.output.publicPath = options.publicPath;
     }
 
     if (options.node) {
@@ -95,18 +99,16 @@ module.exports = function generateConfig(options) {
     return config;
 };
 
-function getEnvConfig(envConfigPath) {
-    try {
-        return JSON.parse(stripJsonComments(fs.readFileSync(envConfigPath, 'utf8')));
-    } catch (e) {
-        e.message = 'Cannot read env file: ' + envConfigPath + '\nError: ' + e.message;
-        throw e;
-    }
-}
-
 function getLoaders(options) {
     let loaders = [
         {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        }, {
+            test: /modernizr.js$/,
+            loader: 'exports-loader?window.Modernizr'
+        }, {
             test: /\.(jpe?g|png|gif|svg|woff|ttf|eot)$/i,
             loader: 'url-loader?limit=10000'
         }, {
@@ -115,26 +117,12 @@ function getLoaders(options) {
         }
     ];
 
-    // TODO: I don't think json-loader is neccesary when under test (i.e. node require supports json out of the box)
-    if (!options.test) {
+    if (options.optimize) {
+        // Strip out all `logger` and `console` statements.
         loaders.push({
             test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
+            loader: 'strip-loader?strip[]=logger.*&strip[]=console.*'
         });
-
-        loaders.push({
-            test: /modernizr.js$/,
-            loader: 'exports-loader?window.Modernizr'
-        });
-
-        if (options.optimize) {
-            // Strip out all `logger` and `console` statements.
-            loaders.push({
-                test: /\.js$/,
-                loader: 'strip-loader?strip[]=logger.*&strip[]=console.*'
-            });
-        }
     }
 
     loaders = loaders.concat(getCssLoaders(options));
@@ -198,17 +186,8 @@ function getCssLoaders(options) {
     return loaders;
 }
 
-function getPlugins(options, envConfig) {
+function getPlugins(options) {
     let plugins = [];
-
-    if (!options.test) {
-        plugins.push(new ProgressBarPlugin());
-        plugins.push(new SimpleDefinePlugin({
-            'process.env': Object.assign({
-                BROWSER: !options.node
-            }, envConfig)
-        }));
-    }
 
     if (options.optimize) {
         // Minify output. (also indirectly triggers CSS minification)
@@ -224,9 +203,7 @@ function getPlugins(options, envConfig) {
         // Setting `NODE_ENV` makes sure we get the production friendly version
         // of React by removing unreachable code when we uglify.
         plugins.push(new SimpleDefinePlugin({
-            'process.env': {
-                NODE_ENV: 'production'
-            }
+            'process.env.NODE_ENV': 'production'
         }));
     }
 
@@ -250,11 +227,9 @@ function getPlugins(options, envConfig) {
     }
 
     if (options.hot) {
-        plugins = plugins.concat([
-            new webpack.optimize.OccurenceOrderPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoErrorsPlugin()
-        ]);
+        plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(new webpack.NoErrorsPlugin());
     }
 
     return plugins;

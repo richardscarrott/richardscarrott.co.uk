@@ -4,6 +4,7 @@ const path = require('path');
 const async = require('async');
 const fs = require('fs-extra');
 const webpack = require('webpack');
+const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin');
 const config = require('./webpack.release.config');
 
 const SRC_DIR = config[0].context;
@@ -17,27 +18,19 @@ function clean(done) {
 }
 
 /**
- * Copies static assets from /src -> /dist. i.e. favicon.ico, robots.txt etc.
+ * Copies static assets from /src/public -> /dist. i.e. favicon.ico, robots.txt etc.
  */
 function copy(done) {
-    async.parallel([
-        'favicon.ico',
-        'apple-touch-icon.png',
-        'browserconfig.xml',
-        'robots.txt',
-        'tile-wide.png',
-        'tile.png',
-        'google54339ce9ce5144a6.html'
-    ]
-    .map(file => path.join(SRC_DIR, file))
-    .map(filePath => fs.copy.bind(fs, filePath, path.join(DIST_DIR, path.basename(filePath)))), done);
+    fs.copy(path.join(SRC_DIR, 'public'), DIST_DIR, done);
 }
 
 /**
  * Bundles app with Webpack.
  */
 function build(done) {
-    webpack(config, (err, stats) => {
+    const compiler = webpack(config);
+    compiler.apply(new ProgressBarWebpackPlugin());
+    compiler.run((err, stats) => {
         if (err) {
             throw err;
         }
@@ -50,9 +43,7 @@ function build(done) {
             chunkOrigins: false,
             exclude: ['node_modules']
         });
-        /* eslint-disable no-console */
-        console.log(output);
-        /* eslint-enable no-console */
+        console.log(output); // eslint-disable-line no-console
         done();
     });
 }
@@ -63,7 +54,7 @@ async.series([
         async.parallel([
             copy,
             build
-        ], done)
+        ], done);
     }
 ], err => {
     if (err) {

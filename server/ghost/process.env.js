@@ -3,14 +3,15 @@
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
 
-const path = require('path');
+var path = require('path'),
+    config;
 
-module.exports = {
+config = {
     // ### Production
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://richardscarrott.co.uk',
+        url: 'http://my-ghost-blog.com',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -19,12 +20,10 @@ module.exports = {
             },
             debug: false
         },
+
         server: {
-            host: '0.0.0.0',
-            port: process.env.PORT
-        },
-        paths: {
-            contentPath: path.join(__dirname, '/content/')
+            host: '127.0.0.1',
+            port: '2368'
         }
     },
 
@@ -32,7 +31,7 @@ module.exports = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: `http://localhost:${process.env.PORT}`,
+        url: 'http://localhost:2368',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -64,7 +63,7 @@ module.exports = {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: process.env.PORT
+            port: '2368'
         },
         // #### Paths
         // Specify where your content directory lives
@@ -79,7 +78,7 @@ module.exports = {
     // Used when developing Ghost to run tests and check the health of Ghost
     // Uses a different port number
     testing: {
-        url: 'http://127.0.0.1:2369/blog',
+        url: 'http://127.0.0.1:2369',
         database: {
             client: 'sqlite3',
             connection: {
@@ -104,7 +103,7 @@ module.exports = {
     // ### Testing MySQL
     // Used by Travis - Automated testing run through GitHub
     'testing-mysql': {
-        url: 'http://127.0.0.1:2369/blog',
+        url: 'http://127.0.0.1:2369',
         database: {
             client: 'mysql',
             connection: {
@@ -125,7 +124,7 @@ module.exports = {
     // ### Testing pg
     // Used by Travis - Automated testing run through GitHub
     'testing-pg': {
-        url: 'http://127.0.0.1:2369/blog',
+        url: 'http://127.0.0.1:2369',
         database: {
             client: 'pg',
             connection: {
@@ -143,3 +142,5 @@ module.exports = {
         logging: false
     }
 };
+
+module.exports = config;
