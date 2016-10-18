@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const geckodriver = require('geckodriver');
 
 module.exports = {
   "src_folders" : ["test/functional"],
@@ -17,7 +18,8 @@ module.exports = {
     "port" : 4444,
     "cli_args" : {
       "webdriver.chrome.driver" : "/usr/local/bin/chromedriver",
-      "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
+      // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
+      "webdriver.gecko.driver" : geckodriver.path,
       "webdriver.edge.driver" : ""
     }
   },
