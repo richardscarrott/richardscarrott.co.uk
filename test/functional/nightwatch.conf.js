@@ -14,14 +14,17 @@ module.exports = {
   "selenium" : {
     "start_process" : true,
     "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
-    "host": "0.0.0.0",
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
-      "webdriver.chrome.driver" : "/usr/local/bin/chromedriver",
+      "webdriver.chrome.driver" : "",
       // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
-      "webdriver.gecko.driver" : geckodriver.path,
+      "webdriver.gecko.driver" : "",
       "webdriver.edge.driver" : ""
+      // "webdriver.chrome.driver" : "/usr/local/bin/chromedriver",
+      // // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
+      // "webdriver.gecko.driver" : geckodriver.path,
+      // "webdriver.edge.driver" : ""
     }
   },
 
