@@ -8,10 +8,10 @@ function Nav({ className }, { location }) {
     return (
         <nav className={classNames(styles.root, className)}>
             <ul className={styles.items}>
-                <Item to="/blog" active={location.pathname === '/'} className={styles.item}>
+                <Item to="/blog" active={location.pathname === '/'} data-automation-id="BlogLink" className={styles.item}>
                     Blog
                 </Item>
-                <Item to="/code" className={styles.item}>
+                <Item to="/code" data-automation-id="CodeLink" className={styles.item}>
                     Code
                 </Item>
             </ul>

@@ -62,7 +62,7 @@ class PostContainer extends Component {
             return null;
         }
         return (
-            <div className={styles.root}>
+            <div data-automation-id="Post" className={styles.root}>
                 {content}
             </div>
         );

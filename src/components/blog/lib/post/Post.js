@@ -10,11 +10,11 @@ import {
 import Meta from 'components/blog/lib/post/meta/Meta';
 import styles from 'components/blog/lib/post/Post.css';
 
-function Post({ title, markdown, slug, published_at, author, excerpt, h1, className }) {
+function Post({ title, markdown, slug, published_at, author, excerpt, h1, titleAutomationId, className }) {
     const url = `/blog/post/${slug}/`;
     return (
         <div className={classNames(styles.root, className)}>
-            <H1 weight="bold" elementType={h1 ? 'h1' : 'h2'}>
+            <H1 weight="bold" elementType={h1 ? 'h1' : 'h2'} data-automation-id={titleAutomationId}>
                 {excerpt ? (
                     <ActionText to={url}>
                         {title}
@@ -43,6 +43,7 @@ Post.propTypes = {
     published_at: PropTypes.string.isRequired,
     author: PropTypes.object.isRequired,
     excerpt: PropTypes.bool.isRequired,
+    titleAutomationId: PropTypes.string,
     className: PropTypes.string
 };
 

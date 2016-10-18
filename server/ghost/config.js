@@ -78,27 +78,33 @@ module.exports = {
     // ### Testing
     // Used when developing Ghost to run tests and check the health of Ghost
     // Uses a different port number
-    testing: {
-        url: 'http://127.0.0.1:2369/blog',
+    test: {
+        // The url to use when providing links to the site, E.g. in RSS and email.
+        // Change this to your Ghost blog's published URL.
+        url: `http://localhost:${process.env.PORT}`,
+
+        // #### Database
+        // Ghost supports sqlite3 (default), MySQL & PostgreSQL
         database: {
             client: 'sqlite3',
             connection: {
                 filename: path.join(__dirname, '/content/data/ghost-test.db')
             },
-            pool: {
-                afterCreate: function (conn, done) {
-                    conn.run('PRAGMA synchronous=OFF;' +
-                    'PRAGMA journal_mode=MEMORY;' +
-                    'PRAGMA locking_mode=EXCLUSIVE;' +
-                    'BEGIN EXCLUSIVE; COMMIT;', done);
-                }
-            }
+            debug: false
         },
+        // #### Server
+        // Can be host & port (default), or socket
         server: {
+            // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
-            port: '2369'
+            // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
+            port: process.env.PORT
         },
-        logging: false
+        // #### Paths
+        // Specify where your content directory lives
+        paths: {
+            contentPath: path.join(__dirname, '/content/')
+        }
     },
 
     // ### Testing MySQL
