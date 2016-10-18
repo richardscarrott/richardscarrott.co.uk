@@ -28,7 +28,7 @@ module.exports = {
     "default" : {
       "launch_url" : "http://localhost:6060",
       "selenium_port"  : 4444,
-      "selenium_host"  : "localhost",
+      "selenium_host"  : "0.0.0.0",
       "silent": true,
       "screenshots" : {
         "enabled" : false,
