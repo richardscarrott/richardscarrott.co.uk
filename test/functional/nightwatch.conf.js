@@ -14,6 +14,7 @@ module.exports = {
   "selenium" : {
     "start_process" : true,
     "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
+    "host": "0.0.0.0",
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
@@ -28,7 +29,7 @@ module.exports = {
     "default" : {
       "launch_url" : "http://localhost:6060",
       "selenium_port"  : 4444,
-      "selenium_host"  : "0.0.0.0",
+      "selenium_host"  : "localhost",
       "silent": true,
       "screenshots" : {
         "enabled" : false,
