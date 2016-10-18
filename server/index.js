@@ -23,7 +23,7 @@ app.use('/api', api);
 // clientId: "ghost-frontend",
 // clientSecret: "4d768870dd95"
 app.use(filter(req => /^\/ghost|content\//.test(req.url), ghost({
-    config: path.join(__dirname, 'ghost/process.env.js')
+    config: path.join(__dirname, 'ghost/config.js')
 })));
 
 if (process.env.WEBPACK_DEV_SERVER === 'true') {
