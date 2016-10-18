@@ -1,4 +1,8 @@
-{
+'use strict';
+
+const path = require('path');
+
+module.exports = {
   "src_folders" : ["test/functional"],
   "output_folder" : "reports",
   "custom_commands_path" : "",
@@ -8,7 +12,7 @@
 
   "selenium" : {
     "start_process" : true,
-    "server_path" : "/Users/rich/Projects/richardscarrott.co.uk/test/functional/lib/selenium-server-standalone-3.0.0.jar",
+    "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
