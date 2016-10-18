@@ -17,6 +17,7 @@ module.exports = {
     "log_path" : "",
     "port" : 4444,
     "cli_args" : {
+      "debug": true,
       "webdriver.chrome.driver" : "",
       // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
       "webdriver.gecko.driver" : "",
