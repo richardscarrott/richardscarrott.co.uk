@@ -10,8 +10,8 @@ import NotFound from 'components/NotFound';
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={process.env.BLOG_ENABLED ? Page : Code} />
-        {process.env.BLOG_ENABLED ? (
+        <IndexRoute component={process.env.BLOG_ENABLED === 'true' ? Page : Code} />
+        {process.env.BLOG_ENABLED === 'true' ? (
             <Route path="blog">
                 <IndexRedirect to="/" />
                 <Redirect path="page/1" to="/" />
@@ -20,7 +20,7 @@ export default (
             </Route>
         ) : null}
         <Route path="code" component={Code}>
-            {process.env.BLOG_ENABLED ? null : (
+            {process.env.BLOG_ENABLED === 'true' ? null : (
                 <IndexRedirect to="/" />
             )}
         </Route>

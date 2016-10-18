@@ -13,7 +13,7 @@ const middleware = [
     sagaMiddleware
 ];
 
-if (process.env.BROWSER && process.env.CLIENT_ENV !== 'production') {
+if (process.env.BROWSER === 'true' && process.env.CLIENT_ENV !== 'production') {
     middleware.push(createLogger());
     middleware.push(fsa);
 }
@@ -24,7 +24,7 @@ export default function configureStore(initialState) {
         initialState,
         compose(
             applyMiddleware(...middleware),
-            process.env.BROWSER
+            process.env.BROWSER === 'true'
                 && window.devToolsExtension ? window.devToolsExtension() : f => f
         )
     );

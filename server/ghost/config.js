@@ -3,7 +3,6 @@
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
 
-const config = require('../config');
 const path = require('path');
 
 module.exports = {
@@ -22,7 +21,7 @@ module.exports = {
         },
         server: {
             host: '0.0.0.0',
-            port: config.PORT
+            port: process.env.PORT
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')
@@ -33,7 +32,7 @@ module.exports = {
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: `http://localhost:${config.PORT}`,
+        url: `http://localhost:${process.env.PORT}`,
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -65,7 +64,7 @@ module.exports = {
             // Host to be passed to node's `net.Server#listen()`
             host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: config.PORT
+            port: process.env.PORT
         },
         // #### Paths
         // Specify where your content directory lives

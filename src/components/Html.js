@@ -33,6 +33,21 @@ function Html({css, js, html, head, initialState}) {
                     }} />
                 ) : null}
                 <script dangerouslySetInnerHTML={{
+                    __html: `window.process = {
+                        env: {
+                            BROWSER: 'true',
+                            CLIENT_ENV: '${process.env.CLIENT_ENV}',
+                            REDUX_LOGGER: '${process.env.REDUX_LOGGER}',
+                            API_ENDPOINT: '${process.env.API_ENDPOINT}',
+                            GHOST_API_ENDPOINT: '${process.env.GHOST_API_ENDPOINT}',
+                            GHOST_API_CLIENT_ID: '${process.env.GHOST_API_CLIENT_ID}',
+                            GHOST_API_CLIENT_SECRET: '${process.env.GHOST_API_CLIENT_SECRET}',
+                            DISQUS_SHORTNAME: '${process.env.DISQUS_SHORTNAME}',
+                            BLOG_ENABLED: '${process.env.BLOG_ENABLED}'
+                        }
+                    }`
+                }} />
+                <script dangerouslySetInnerHTML={{
                     __html: `window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}`
                 }} />
                 <script src={js} async />

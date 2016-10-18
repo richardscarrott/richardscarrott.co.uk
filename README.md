@@ -4,3 +4,7 @@
 npm run serve`
 
 Built with: https://github.com/60frames/react-boilerplate/
+
+## TODO
+- Now env vars are handled at release time rather than build time feature switching
+is only surface level so would make sense to include concept for feature switching using DefinePlugin.
