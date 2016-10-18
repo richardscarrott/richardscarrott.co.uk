@@ -11,6 +11,8 @@ install:
 cache:
   directories:
     - node_modules
+addons:
+  firefox: "49.0"
 before_script:
     - npm run serve &
     - sleep 3 # give Web server some time to bind to sockets, etc
