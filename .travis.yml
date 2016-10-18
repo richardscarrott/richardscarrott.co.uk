@@ -3,7 +3,9 @@ jdk:
   - oraclejdk8
 env:
   - NODE_VERSION=4
-before_install: npm i -g npm@2.15.5
+before_install:
+    - which firefox
+    - npm i -g npm@2.15.5
 install:
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
