@@ -12,11 +12,17 @@ module.exports = {
   "globals_path" : "",
 
   "selenium" : {
-    "start_process" : true,
+    "start_process" : false,
     // "server_path": path.join(__dirname, 'lib/selenium-server-standalone-2.53.1.jar'),
-    "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
-    "log_path" : "",
-    "port" : 4444,
+    // "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
+    // "host": "hub-cloud.browserstack.com",
+    // "port": 80,
+    // "log_path" : "",
+    // "port" : 4444,
+    // 'selenium_port': 80,
+    // 'selenium_host': 'hub.browserstack.com',
+
+    // http://USERNAME:ACCESS_KEY@hub-cloud.browserstack.com/wd/hub
     "cli_args" : {
       "debug": true,
       // "webdriver.chrome.driver" : "",
@@ -41,8 +47,30 @@ module.exports = {
         "path" : ""
       },
       "desiredCapabilities": {
-        "browserName": "firefox",
-        "marionette": true
+        // 'build': 'nightwatch-browserstack',
+        // 'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
+        // 'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
+        'browserstack.debug': true,
+        'browser': 'chrome',
+        'selenium_port': 80,
+        'selenium_host': 'hub.browserstack.com',
+
+        'browserstack.local': 'true',
+        'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+
+        // browserName: 'Safari',
+        // browser_version: '8.0',
+        // os: 'OS X',
+        // os_version: 'Yosemite',
+        // resolution: '1024x768',
+        // 'browserstack.local': 'true',
+        // 'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+        // build: process.env.BS_AUTOMATE_BUILD,
+        // project: process.env.BS_AUTOMATE_PROJECT,
+        // 'browserstack.user': process.env.BROWSERSTACK_USERNAME,
+        // 'browserstack.key': process.env.BROWSERSTACK_KEY
+        // "browserName": "firefox",
+        // "marionette": true
       },
       "globals": {
         "waitForConditionTimeout": 2000
