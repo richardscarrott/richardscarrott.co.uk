@@ -54,6 +54,7 @@ module.exports = {
       "access_key" : process.env.SAUCE_ACCESS_KEY,
       "desiredCapabilities": {
         'build': 'nightwatch-sauce-labs',
+        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         // 'browserstack.user': '',
         // 'browserstack.key': '',
         // 'browserstack.local': true,
