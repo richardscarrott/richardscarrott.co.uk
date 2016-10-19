@@ -5,6 +5,9 @@ env:
   - NODE_VERSION=4
 before_install:
     - which firefox
+    - which firefoxdriver
+    - which geckodriver
+    - which chromedriver
     - npm i -g npm@2.15.5
 install:
   - nvm install $NODE_VERSION
