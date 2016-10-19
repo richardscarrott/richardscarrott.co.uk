@@ -1,16 +1,17 @@
 language: node_js
 node_js:
   - "4"
-addons:
-  browserstack: http://richardscarrott1.browserstack.com
-  access_key:
-    secure: "PU/TBMDvDIOmP07kciQ8gIJ1ALjKaCBg5j6w6VtlCa3DmC1ySuA2HH5+/3dODSUqt30nmQpYX16MiS94nVrp23PevGVTLLV2BtBgvOzSL7TlTOfE2JGQvx3zfQ0qOZEE5XfHaoyzZqi7h5VF5ltlAUjFH5QKg/pzGRmyQdgAHV4D96exB2FQ83LeSYBnFCqtnuowUeFeIFB3gciCWow3Lzo5p4Wz+WtFKRkMRzkecsKmpuVtB7HaVUm1iWFUQlhpBzaXQz+mSvlwz7t4e6dA8J5mJTSMFgKrzSHtATj/vUBnCANpTX7tA4ODa5dsoel1WNbx4c2yjWq5Rsk4pdtQ+EvsWN+twVdKv+isPYVSggf63UYClZxov4BxrhX46toVn3xwCBaILe6giywjA6TmT2xeF/ajenGCigdzeQy+FpX/x9kLYoOBePuUgGEYiAjgI1b/1DORBUBJgLztd5h2yFVxSmSIyKUGEPgmhxq4eM9RvbU2Gplu1qlHVFC+T2Bwt0UIHNcHr8yaLF3cz+BSnOo5e5HorEPq+cS1rQMAb4B4EDedQOnUqnA48muHCKF0BgYu1VeahE461BH9WDBWJb/VU4NdXvWD+7wTAQ8MrmIKjLtFg6nODPoVJ/CJlpEhNOuPcYnwqhweuvNzJ5XYmb0s/5xta/Dc0HmiTsD2Bn4="
 # global:
   # - BS_AUTOMATE_PROJECT="$TRAVIS_REPO_SLUG"
   # - BS_AUTOMATE_BUILD="Travis build No. $TRAVIS_BUILD_NUMBER for $TRAVIS_REPO_SLUG"
 # matrix:
 #   - SELENIUM_PLATFORM=WINDOWS SELENIUM_BROWSER=IE SELENIUM_VERSION=9
 sudo: false
+addons:
+  browserstack:
+    username: "http://richardscarrott1.browserstack.com"
+    access_key:
+      secure: "PU/TBMDvDIOmP07kciQ8gIJ1ALjKaCBg5j6w6VtlCa3DmC1ySuA2HH5+/3dODSUqt30nmQpYX16MiS94nVrp23PevGVTLLV2BtBgvOzSL7TlTOfE2JGQvx3zfQ0qOZEE5XfHaoyzZqi7h5VF5ltlAUjFH5QKg/pzGRmyQdgAHV4D96exB2FQ83LeSYBnFCqtnuowUeFeIFB3gciCWow3Lzo5p4Wz+WtFKRkMRzkecsKmpuVtB7HaVUm1iWFUQlhpBzaXQz+mSvlwz7t4e6dA8J5mJTSMFgKrzSHtATj/vUBnCANpTX7tA4ODa5dsoel1WNbx4c2yjWq5Rsk4pdtQ+EvsWN+twVdKv+isPYVSggf63UYClZxov4BxrhX46toVn3xwCBaILe6giywjA6TmT2xeF/ajenGCigdzeQy+FpX/x9kLYoOBePuUgGEYiAjgI1b/1DORBUBJgLztd5h2yFVxSmSIyKUGEPgmhxq4eM9RvbU2Gplu1qlHVFC+T2Bwt0UIHNcHr8yaLF3cz+BSnOo5e5HorEPq+cS1rQMAb4B4EDedQOnUqnA48muHCKF0BgYu1VeahE461BH9WDBWJb/VU4NdXvWD+7wTAQ8MrmIKjLtFg6nODPoVJ/CJlpEhNOuPcYnwqhweuvNzJ5XYmb0s/5xta/Dc0HmiTsD2Bn4="      
 before_install: npm i -g npm@2.15.5
 cache:
   directories:
