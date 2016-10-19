@@ -13,6 +13,8 @@ module.exports = {
 
   "selenium" : {
     "start_process" : false,
+    // 'host': process.env.SELENIUM_HOST,
+    // 'port': process.env.SELENIUM_PORT,
     // "server_path": path.join(__dirname, 'lib/selenium-server-standalone-2.53.1.jar'),
     // "server_path": path.join(__dirname, 'lib/selenium-server-standalone-3.0.0.jar'),
     // "host": "hub-cloud.browserstack.com",
@@ -47,15 +49,17 @@ module.exports = {
         "path" : ""
       },
       'selenium_port': 80,
-      'selenium_host': 'hub.browserstack.com',
+      'selenium_host': 'ondemand.saucelabs.com',
+      "username" : process.env.SAUCE_USERNAME,
+      "access_key" : process.env.SAUCE_ACCESS_KEY,
       "desiredCapabilities": {
-        'build': 'nightwatch-browserstack',
-        'browserstack.user': '',
-        'browserstack.key': '',
-        'browserstack.local': true,
-        'browserstack.debug': true,
-        'browserName': 'android', 'platform': 'ANDROID', 'device': 'Samsung Galaxy S5 Mini'
-        // 'browser': 'chrome'
+        'build': 'nightwatch-browserstack'
+        // 'browserstack.user': '',
+        // 'browserstack.key': '',
+        // 'browserstack.local': true,
+        // 'browserstack.debug': true,
+        // 'browserName': 'android', 'platform': 'ANDROID', 'device': 'Samsung Galaxy S5 Mini'
+        'browser': 'chrome'
 
         // 'build': 'nightwatch-browserstack',
         // 'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
