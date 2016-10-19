@@ -23,6 +23,9 @@ module.exports = {
       "desiredCapabilities": {
         "browserName": "firefox",
         "marionette": true
+      },
+      "globals": {
+        "waitForConditionTimeout": 2000
       }
     },
 

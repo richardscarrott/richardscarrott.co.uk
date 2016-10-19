@@ -12,7 +12,7 @@ before_script:
     - sleep 5 # give Web server some time to bind to sockets, etc
 script:
     # - npm test
-    - npm run test:functional
+    - npm run test:functional:remote
 addons:
   sauce_connect:
     username: "riscarrott"
