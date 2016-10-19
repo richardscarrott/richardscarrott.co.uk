@@ -2,12 +2,13 @@ language: node_js
 node_js:
     - "4"
 sudo: false
-before_install: npm i -g npm@2.15.5
+before_install:
+    - printenv
+    - npm i -g npm@2.15.5
 cache:
     directories:
         - node_modules
 before_script:
-    - printenv
     - npm run serve &
     - sleep 5 # give Web server some time to bind to sockets, etc
 script:
