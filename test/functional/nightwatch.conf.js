@@ -37,7 +37,10 @@ module.exports = {
       "desiredCapabilities": {
         'build': 'nightwatch-sauce-labs',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-        'browser': 'chrome'
+        browserName: 'chrome',
+        platform: 'OS X 10.11',
+        version: '53.0',
+        browserName: 'chrome'
       }
     },
 
