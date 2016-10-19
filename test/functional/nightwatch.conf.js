@@ -53,7 +53,7 @@ module.exports = {
       "username" : process.env.SAUCE_USERNAME,
       "access_key" : process.env.SAUCE_ACCESS_KEY,
       "desiredCapabilities": {
-        'build': 'nightwatch-browserstack'
+        'build': 'nightwatch-sauce-labs',
         // 'browserstack.user': '',
         // 'browserstack.key': '',
         // 'browserstack.local': true,
