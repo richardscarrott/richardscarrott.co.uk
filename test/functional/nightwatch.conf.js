@@ -23,8 +23,8 @@ module.exports = {
     // 'selenium_host': 'hub.browserstack.com',
 
     // http://USERNAME:ACCESS_KEY@hub-cloud.browserstack.com/wd/hub
-    "cli_args" : {
-      "debug": true,
+    // "cli_args" : {
+      // "debug": true,
       // "webdriver.chrome.driver" : "",
       // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
       // "webdriver.gecko.driver" : "",
@@ -33,30 +33,40 @@ module.exports = {
       // // "webdriver.gecko.driver" : "/usr/local/bin/geckodriver",
       // "webdriver.gecko.driver" : geckodriver.path,
       // "webdriver.edge.driver" : ""
-    }
+    // }
   },
 
   "test_settings" : {
     "default" : {
       "launch_url" : "http://localhost:6060",
-      "selenium_port"  : 4444,
-      "selenium_host"  : "localhost",
+      // "selenium_port"  : 4444,
+      // "selenium_host"  : "localhost",
       "silent": true,
       "screenshots" : {
         "enabled" : false,
         "path" : ""
       },
+      'selenium_port': 80,
+      'selenium_host': 'hub.browserstack.com',
       "desiredCapabilities": {
+        'build': 'nightwatch-browserstack',
+        'browserstack.user': '',
+        'browserstack.key': '',
+        'browserstack.local': true,
+        'browserstack.debug': true,
+        'browserName': 'android', 'platform': 'ANDROID', 'device': 'Samsung Galaxy S5 Mini'
+        // 'browser': 'chrome'
+
         // 'build': 'nightwatch-browserstack',
         // 'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
         // 'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
-        'browserstack.debug': true,
-        'browser': 'chrome',
-        'selenium_port': 80,
-        'selenium_host': 'hub.browserstack.com',
-
-        'browserstack.local': 'true',
-        'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+        // 'browserstack.debug': true,
+        // 'browser': 'chrome',
+        // 'selenium_port': 80,
+        // 'selenium_host': 'hub.browserstack.com',
+        //
+        // 'browserstack.local': 'true',
+        // 'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
 
         // browserName: 'Safari',
         // browser_version: '8.0',
@@ -73,7 +83,7 @@ module.exports = {
         // "marionette": true
       },
       "globals": {
-        "waitForConditionTimeout": 2000
+        "waitForConditionTimeout": 10000
       }
     },
 
