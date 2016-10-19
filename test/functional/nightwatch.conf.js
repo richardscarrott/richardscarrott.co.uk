@@ -35,8 +35,9 @@ module.exports = {
       "username" : process.env.SAUCE_USERNAME,
       "access_key" : process.env.SAUCE_ACCESS_KEY,
       "desiredCapabilities": {
+        'build': 'nightwatch-sauce-labs',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-        'browser': 'chrome'
+        'browserName': 'chrome'
       }
     },
 
