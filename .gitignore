@@ -1,7 +1,7 @@
 .DS_Store
 dist
 node_modules
-server/log/*.log
+*.log
 server/.env
 typings
-npm-debug.log
+test/functional/reports

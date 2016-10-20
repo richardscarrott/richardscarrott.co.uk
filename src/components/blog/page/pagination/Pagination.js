@@ -8,14 +8,14 @@ function Pagination({ page, pages, className }) {
         <div className={classNames(styles.root, className)}>
             {page < pages ? (
                 <BodyText className={styles.older}>
-                    <ActionText to={`/blog/page/${page + 1}`}>
+                    <ActionText to={`/blog/page/${page + 1}`} data-automation-id="OlderPosts">
                         ← Older Posts
                     </ActionText>
                 </BodyText>
             ) : null}
             {page > 1 ? (
                 <BodyText className={styles.newer}>
-                    <ActionText to={`/blog/page/${page - 1}`}>
+                    <ActionText to={`/blog/page/${page - 1}`} data-automation-id="NewerPosts">
                         Newer Posts →
                     </ActionText>
                 </BodyText>

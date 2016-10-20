@@ -6,6 +6,9 @@
 # The environment
 NODE_ENV=development
 
+# The ghost environment
+GHOST_ENV=development
+
 # Show debugger output in terminal
 # https://github.com/visionmedia/debug#wildcards
 DEBUG=app, webpack-universal-renderer-middleware, ghost-middleware

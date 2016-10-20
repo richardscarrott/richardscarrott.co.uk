@@ -10,7 +10,9 @@
     "serve": "node -r ./server/environment ./server",
     "test": "node --harmony_proxies ./node_modules/.bin/jest",
     "test:debug": "node-debug --harmony_proxies ./node_modules/.bin/jest",
-    "test:watch": "node --harmony_proxies ./node_modules/.bin/jest --watch"
+    "test:watch": "node --harmony_proxies ./node_modules/.bin/jest --watch",
+    "test:functional": "nightwatch --config ./test/functional/nightwatch.conf.js",
+    "test:functional:remote": "nightwatch --env saucelabs --config ./test/functional/nightwatch.conf.js"
   },
   "engines": {
     "node": "4.4.4",
@@ -43,9 +45,9 @@
       "<rootDir>/node_modules/identity-obj-proxy/"
     ],
     "moduleNameMapper": {
-      "^.+factory\\.css$": "<rootDir>/test/factoryStyleMock.js",
-      "^.+\\.css$": "<rootDir>/test/styleMock.js",
-      "^.+\\.(jpe?g|png|gif|svg|woff|ttf|eot)$": "<rootDir>/test/fileMock.js"
+      "^.+factory\\.css$": "<rootDir>/test/unit/mocks/factoryStyleMock.js",
+      "^.+\\.css$": "<rootDir>/test/unit/mocks/styleMock.js",
+      "^.+\\.(jpe?g|png|gif|svg|woff|ttf|eot)$": "<rootDir>/test/unit/mocks/fileMock.js"
     }
   },
   "author": "",
@@ -71,10 +73,12 @@
     "flux-standard-action": "^0.6.1",
     "friendly-errors-webpack-plugin": "^1.1.0",
     "fs-extra": "^0.26.7",
+    "geckodriver": "^1.1.3",
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.6.5",
     "jest-cli": "^16.0.1",
     "json-loader": "^0.5.4",
+    "nightwatch": "^0.9.8",
     "postcss-aspect-ratio": "^1.0.0",
     "postcss-custom-properties": "^5.0.1",
     "postcss-import": "^8.1.2",

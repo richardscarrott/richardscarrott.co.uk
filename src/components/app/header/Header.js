@@ -6,7 +6,7 @@ import styles from 'components/app/header/Header.css';
 
 function Header({ className, ...other }) {
     return (
-        <div {...other} className={classNames(styles.root, className)}>
+        <div {...other} data-automation-id="header" className={classNames(styles.root, className)}>
             <Logo className={styles.logo} />
             {process.env.BLOG_ENABLED === 'true' ? <Nav className={styles.nav} /> : null}
         </div>

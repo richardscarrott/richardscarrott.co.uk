@@ -63,7 +63,7 @@ class PageContainer extends Component {
     render() {
         const { isFetching, error, posts, params, pagination } = this.props;
         return (
-            <div className={styles.root}>
+            <div data-automation-id="Page" className={styles.root}>
                 <Helmet title="Blog" />
                 {isFetching ? (
                     <Loader />
@@ -75,7 +75,7 @@ class PageContainer extends Component {
                     <div className={styles.posts}>
                         {posts.map((post, i) => {
                             return (
-                                <Post {...post} key={post.id} excerpt h1={i === 0} className={styles.post} />
+                                <Post {...post} key={post.id} excerpt h1={i === 0} titleAutomationId={`PostTitle${i}`} className={styles.post} />
                             );
                         })}
                         <Pagination {...pagination} page={getPageNumber(params.pageNumber)} className={styles.pagination} />

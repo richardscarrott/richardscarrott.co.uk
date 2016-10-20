@@ -35,7 +35,7 @@ class Code extends Component {
     render() {
         const { isFetching, error, events, hasData } = this.props;
         return (
-            <div className={styles.root}>
+            <div data-automation-id="Code" className={styles.root}>
                 <Helmet title="Code" />
                 {isFetching ? (
                     <Loader />
