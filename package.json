@@ -11,7 +11,7 @@
     "test": "node --harmony_proxies ./node_modules/.bin/jest",
     "test:debug": "node-debug --harmony_proxies ./node_modules/.bin/jest",
     "test:watch": "node --harmony_proxies ./node_modules/.bin/jest --watch",
-    "test:functional": "nightwatch --env default --config ./test/functional/nightwatch.conf.js",
+    "test:functional": "nightwatch --config ./test/functional/nightwatch.conf.js",
     "test:functional:remote": "nightwatch --env saucelabs --config ./test/functional/nightwatch.conf.js"
   },
   "engines": {
@@ -45,9 +45,9 @@
       "<rootDir>/node_modules/identity-obj-proxy/"
     ],
     "moduleNameMapper": {
-      "^.+factory\\.css$": "<rootDir>/test/factoryStyleMock.js",
-      "^.+\\.css$": "<rootDir>/test/styleMock.js",
-      "^.+\\.(jpe?g|png|gif|svg|woff|ttf|eot)$": "<rootDir>/test/fileMock.js"
+      "^.+factory\\.css$": "<rootDir>/test/unit/mocks/factoryStyleMock.js",
+      "^.+\\.css$": "<rootDir>/test/unit/mocks/styleMock.js",
+      "^.+\\.(jpe?g|png|gif|svg|woff|ttf|eot)$": "<rootDir>/test/unit/mocks/fileMock.js"
     }
   },
   "author": "",

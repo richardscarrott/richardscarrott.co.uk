@@ -4,4 +4,4 @@ node_modules
 *.log
 server/.env
 typings
-reports
+test/functional/reports
