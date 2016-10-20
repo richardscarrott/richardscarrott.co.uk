@@ -11,7 +11,7 @@ before_script:
     - npm run serve &
     - sleep 5 # give Web server some time to bind to sockets, etc
 script:
-    # - npm test
+    - npm test
     - npm run test:functional:remote
 addons:
   sauce_connect:
