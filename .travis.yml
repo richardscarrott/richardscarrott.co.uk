@@ -11,7 +11,7 @@ branches:
 before_install:
     - npm i -g npm@2.15.5
 install:
-    - npm install
+    - npm install --production=false
 before_script:
     - npm run serve &
     - sleep 5 # give Web server some time to bind to sockets, etc
