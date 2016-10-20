@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const geckodriver = require('geckodriver');
 
 module.exports = {
     src_folders: ['test/functional/tests'],
