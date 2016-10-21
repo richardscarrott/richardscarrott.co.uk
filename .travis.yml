@@ -5,11 +5,10 @@ sudo: false
 cache:
     directories:
         - node_modules
-branches:
-  only:
-      - master
 before_install:
     - npm i -g npm@2.15.5
+install:
+    - npm install --production=false
 before_script:
     - npm run serve &
     - sleep 5 # give Web server some time to bind to sockets, etc
@@ -17,7 +16,12 @@ script:
     - npm test
     - npm run test:functional:remote
 addons:
-  sauce_connect:
-    username: "riscarrott"
-  jwt:
-    secure: "voU9xvKB7SKwPQO/SEyBqLu+tAHtUST8pC70TlcbUYz82J46xWzIL+Wo4se3S1xVfOgRDcRM3gKs94cJlAEzka8hYxio0KMpF2p1OXg9FwgjmUx1qACAfig+mL/fX3Gf/usvBZJcuGkJWzEO3a9d6CAb0YHV9mo3VKWkEd/u2FXjc+P2GBR3nXJkZpMkXr2ycDUmeljv/75OZbbuCJGOEogkDzJL5+2dsUGdhHn4sBH1KWza3qP7dgcr1/jIuQe1BZeDwMFFvYsTLEs5mEu4MM70Lg2WfmkriEG1zC8QGAvb0dlO90H5b4j0irHHM1Fz/FXcazNRKGbikJfXcQxUL1JtN+D+Tla3OjoN/6iGPsf+L7YLr10eshOOAl5XwNiffi+S12+ijI6Y5aQTA+auk8LUeQ4cM3sdRIwGoew7ccK81DCkORKDm5smpcOfg5c3HzqxylZvjXhyyH549bnbJJCf8HTvJvghP21wi+72P1vPalaNEEv0i5UPv/4dvw4ivAVCl6O1WGKOfaK0JOyFGtwkVWipOKJH5I5VRj8AGT4JL3HnFN3PxoX1o3OGolcn8BHQJGtUKjO0jWKwEGReIyGFME6vbTHE7/xOn6o6PATzXUBjaK7QPlUyhFvve2z2gj/O6ee9pL1ohBjbBELiyJwOE4SzphxDXDXLM+93qFE="
+  browserstack:
+    username: "richardscarrott1"
+    access_key:
+        secure: "qMFIGgcjeBMxA8dF2QXvfLEL1YbPfx5nW4VHsRL+zjBVtOvuJLyybFlaPbd0UGRTNPb3RoJ/bqdyjZpQ9uvzXbQ+DJ9y8Ust6eKtB15+Ot5N7fmkvQ8jQoHz5yFY3v8ueq6vM5eu3ueVzchU5l/LQDeEaV7CRN3xz4aB5cuy816bK9lNqRy/YeRrGvTeU0tOqiE06d+vaKc+lImWQtLXuWEkYuSXMWVLZpK5E6KcQfcu1sPUEBm1VCk+cc8AMZ2jPNuhTsYytESSyXgatGjImAZ2CxGRsl5hnWTgFZ6nRMgsPtiA+Zb6NTMoX99lWra6g1cyhGK0HX0G/7G9WAuRAxmSPYIy2gU/ho+zsNyS9oEJJJKfivmDFMtLd5MFYNsZ1ivuqld0jnzXLwQjtf9DpJUEGhQN/omi0s9JLsKCZ25Xpzg10/63KtGdB+/4pjEDsLxnSFXwBcH7dx632O0s39FgMtea1S+gGuE/+ocQeCpGSKzCwcTsKtztvJ+BrSdNFNIBX+OLlZbWqnoD5l7MdTmoAVWqO0FU6pv7viWVl79cjrJ2VyAsVr+5so4PU8OmD43rTatqWI5nmv/wZVs/TdbM86KIk+X4r4fVEv8MAMNmchRYzOq4Non8QYLmiFDuG4LVGDKI3HR+qX+/x9mRu+9lY77IRgEPk1bY4wkdRXc="
+# addons:
+#   sauce_connect:
+#     username: "riscarrott"
+#   jwt:
+#     secure: "voU9xvKB7SKwPQO/SEyBqLu+tAHtUST8pC70TlcbUYz82J46xWzIL+Wo4se3S1xVfOgRDcRM3gKs94cJlAEzka8hYxio0KMpF2p1OXg9FwgjmUx1qACAfig+mL/fX3Gf/usvBZJcuGkJWzEO3a9d6CAb0YHV9mo3VKWkEd/u2FXjc+P2GBR3nXJkZpMkXr2ycDUmeljv/75OZbbuCJGOEogkDzJL5+2dsUGdhHn4sBH1KWza3qP7dgcr1/jIuQe1BZeDwMFFvYsTLEs5mEu4MM70Lg2WfmkriEG1zC8QGAvb0dlO90H5b4j0irHHM1Fz/FXcazNRKGbikJfXcQxUL1JtN+D+Tla3OjoN/6iGPsf+L7YLr10eshOOAl5XwNiffi+S12+ijI6Y5aQTA+auk8LUeQ4cM3sdRIwGoew7ccK81DCkORKDm5smpcOfg5c3HzqxylZvjXhyyH549bnbJJCf8HTvJvghP21wi+72P1vPalaNEEv0i5UPv/4dvw4ivAVCl6O1WGKOfaK0JOyFGtwkVWipOKJH5I5VRj8AGT4JL3HnFN3PxoX1o3OGolcn8BHQJGtUKjO0jWKwEGReIyGFME6vbTHE7/xOn6o6PATzXUBjaK7QPlUyhFvve2z2gj/O6ee9pL1ohBjbBELiyJwOE4SzphxDXDXLM+93qFE="
