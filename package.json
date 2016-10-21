@@ -12,7 +12,7 @@
     "test:debug": "node-debug --harmony_proxies ./node_modules/.bin/jest",
     "test:watch": "node --harmony_proxies ./node_modules/.bin/jest --watch",
     "test:functional": "nightwatch --config ./test/functional/nightwatch.conf.js",
-    "test:functional:remote": "nightwatch --env saucelabs --config ./test/functional/nightwatch.conf.js"
+    "test:functional:remote": "nightwatch --env browserstack --config ./test/functional/nightwatch.conf.js"
   },
   "engines": {
     "node": "4.4.4",

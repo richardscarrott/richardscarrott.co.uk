@@ -2,6 +2,9 @@
 
 const path = require('path');
 
+console.log(process.env.BROWSERSTACK_USERNAME, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+console.log(process.env.BROWSERSTACK_ACCESS_KEY, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+
 module.exports = {
     src_folders: ['test/functional/tests'],
     output_folder: 'test/functional/reports',
@@ -21,6 +24,18 @@ module.exports = {
             },
             globals: {
                 waitForConditionTimeout: 2000
+            }
+        },
+        browserstack: {
+            selenium_port: 80,
+            selenium_host: 'hub-cloud.browserstack.com',
+            username: 'richardscarrott1',
+            access_key: process.env.BROWSERSTACK_ACCESS_KEY,
+            desiredCapabilities: {
+                build: 'nightwatch-sauce-labs',
+                browserName: 'chrome',
+                'browserstack.local': 'true',
+                'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
             }
         },
         saucelabs: {
