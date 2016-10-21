@@ -26,13 +26,19 @@ module.exports = {
                 waitForConditionTimeout: 2000
             }
         },
+        firefox: {
+            desiredCapabilities: {
+                browserName: 'firefox',
+                marionette: true
+            }
+        },
         browserstack: {
             selenium_port: 80,
             selenium_host: 'hub-cloud.browserstack.com',
             username: 'richardscarrott1',
             access_key: process.env.BROWSERSTACK_ACCESS_KEY,
             desiredCapabilities: {
-                build: 'nightwatch-sauce-labs',
+                build: 'nightwatch-browserstack',
                 browserName: 'chrome',
                 'browserstack.local': 'true',
                 'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
@@ -50,12 +56,6 @@ module.exports = {
                 platform: 'OS X 10.11',
                 version: '53.0',
                 browserName: 'chrome'
-            }
-        },
-        firefox: {
-            desiredCapabilities: {
-                browserName: 'firefox',
-                marionette: true
             }
         }
     }
