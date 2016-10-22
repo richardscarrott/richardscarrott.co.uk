@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const geckodriver = require('geckodriver');
 
 module.exports = {
     src_folders: ['test/functional/tests'],
@@ -24,6 +23,27 @@ module.exports = {
                 waitForConditionTimeout: 2000
             }
         },
+        firefox: {
+            desiredCapabilities: {
+                browserName: 'firefox',
+                marionette: true
+            }
+        },
+        browserstack: {
+            selenium_port: 80,
+            selenium_host: 'hub-cloud.browserstack.com',
+            username: 'richardscarrott1',
+            access_key: process.env.BROWSERSTACK_ACCESS_KEY,
+            desiredCapabilities: {
+                build: 'nightwatch-browserstack',
+                'browserstack.local': 'true',
+                'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
+                browserName: 'chrome',
+                platform: 'MAC',
+                version: '53.0',
+                browserName: 'chrome'
+            }
+        },
         saucelabs: {
             selenium_port: 80,
             selenium_host: 'ondemand.saucelabs.com',
@@ -36,12 +56,6 @@ module.exports = {
                 platform: 'OS X 10.11',
                 version: '53.0',
                 browserName: 'chrome'
-            }
-        },
-        firefox: {
-            desiredCapabilities: {
-                browserName: 'firefox',
-                marionette: true
             }
         }
     }
