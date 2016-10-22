@@ -39,7 +39,7 @@ module.exports = {
                 'browserstack.local': 'true',
                 'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
                 browserName: 'chrome',
-                platform: 'OS X 10.11',
+                platform: 'MAC',
                 version: '53.0',
                 browserName: 'chrome'
             }
