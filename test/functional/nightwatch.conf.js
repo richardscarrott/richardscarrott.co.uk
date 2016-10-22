@@ -2,9 +2,6 @@
 
 const path = require('path');
 
-console.log(process.env.BROWSERSTACK_USERNAME, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-console.log(process.env.BROWSERSTACK_ACCESS_KEY, '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
-
 module.exports = {
     src_folders: ['test/functional/tests'],
     output_folder: 'test/functional/reports',
@@ -39,9 +36,12 @@ module.exports = {
             access_key: process.env.BROWSERSTACK_ACCESS_KEY,
             desiredCapabilities: {
                 build: 'nightwatch-browserstack',
-                browserName: 'chrome',
                 'browserstack.local': 'true',
-                'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER
+                'browserstack.localIdentifier': process.env.BROWSERSTACK_LOCAL_IDENTIFIER,
+                browserName: 'chrome',
+                platform: 'OS X 10.11',
+                version: '53.0',
+                browserName: 'chrome'
             }
         },
         saucelabs: {
